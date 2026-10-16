@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "1ea86b7ae3984a02a410",
+  "displayName": "Finanzas para adquisición",
+  "displayOption": "FitToPage",
+  "height": 1000,
+  "width": 1600
+}

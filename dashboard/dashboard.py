@@ -1,455 +1,89 @@
-import streamlit as st
+"""Dashboard ejecutivo para Directorio y Gerencia General (Python)."""
+import json
+import sys
+from pathlib import Path
 import pandas as pd
 import plotly.express as px
-from pathlib import Path
+import pycountry
+import streamlit as st
+import streamlit.components.v1 as components
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from src.prep import load_clean, explode
+from src import metrics as M
+from src.filters import filter_catalog
 
-# ============================================================
-# STREAMVIEW ANALYTICS - DASHBOARD
-# ============================================================
-
-st.set_page_config(
-    page_title="StreamView Analytics",
-    page_icon="🎬",
-    layout="wide"
-)
-
-# ============================================================
-# CARGA DE DATOS
-# ============================================================
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR / "data" / "processed"
-
-MOVIES_FILE = DATA_DIR / "movies_clean.csv"
-TV_FILE = DATA_DIR / "tv_shows_clean.csv"
-
+st.set_page_config(page_title="StreamView - Ejecutivo Python", layout="wide")
+PAL = {"Película": "#1f4e79", "Serie": "#f28e2b"}
+MAP_CONFIG = {"topojsonURL": "/app/static/"}
 
 @st.cache_data
-def load_data():
-
-    movies = pd.read_csv(MOVIES_FILE)
-    tv = pd.read_csv(TV_FILE)
-
-    movies["tipo"] = "Película"
-    tv["tipo"] = "Serie"
-
-    return movies, tv
-
-
-movies, tv = load_data()
-
-# ============================================================
-# PREPARAR DATOS
-# ============================================================
-
-movies["year"] = pd.to_numeric(
-    movies["year"], errors="coerce"
-)
-
-tv["year"] = pd.to_numeric(
-    tv["year"], errors="coerce"
-)
-
-# ============================================================
-# TÍTULO
-# ============================================================
-
-st.title("🎬 StreamView Analytics")
-
-st.subheader(
-    "Dashboard ejecutivo para la toma de decisiones sobre contenido"
-)
-
-st.write(
-    "Explora el catálogo, sus principales características, "
-    "la interacción observable mediante votos y la información financiera disponible."
-)
-
-st.divider()
-
-# ============================================================
-# FILTROS
-# ============================================================
-
-st.sidebar.header("🔎 Filtros")
-
-tipo = st.sidebar.multiselect(
-    "Tipo de contenido",
-    options=["Película", "Serie"],
-    default=["Película", "Serie"]
-)
-
-# Unir datasets
-data = pd.concat(
-    [movies, tv],
-    ignore_index=True
-)
-
-# Aplicar filtro tipo
-data = data[data["tipo"].isin(tipo)]
-
-# Filtro de años
-min_year = int(data["year"].min())
-max_year = int(data["year"].max())
-
-years = st.sidebar.slider(
-    "Rango de años",
-    min_value=min_year,
-    max_value=max_year,
-    value=(min_year, max_year)
-)
-
-data = data[
-    (data["year"] >= years[0]) &
-    (data["year"] <= years[1])
-]
-
-# ============================================================
-# KPIs
-# ============================================================
-
-total_titles = len(data)
-
-movies_count = len(
-    data[data["tipo"] == "Película"]
-)
-
-tv_count = len(
-    data[data["tipo"] == "Serie"]
-)
-
-avg_rating = data["vote_average"].mean()
-
-avg_votes = data["vote_count"].mean()
-
-col1, col2, col3, col4 = st.columns(4)
-
-with col1:
-    st.metric(
-        "🎬 Títulos",
-        f"{total_titles:,}"
-    )
-
-with col2:
-    st.metric(
-        "🎞️ Películas",
-        f"{movies_count:,}"
-    )
-
-with col3:
-    st.metric(
-        "📺 Series",
-        f"{tv_count:,}"
-    )
-
-with col4:
-    st.metric(
-        "⭐ Rating promedio",
-        f"{avg_rating:.2f}/10"
-    )
-
-st.divider()
-
-# ============================================================
-# PRIMERA FILA DE GRÁFICOS
-# ============================================================
-
-col1, col2 = st.columns(2)
-
-# ------------------------------------------------------------
-# CATÁLOGO POR TIPO
-# ------------------------------------------------------------
-
-with col1:
-
-    st.subheader("Composición del catálogo")
-
-    catalogo = (
-        data["tipo"]
-        .value_counts()
-        .reset_index()
-    )
-
-    catalogo.columns = [
-        "Tipo",
-        "Cantidad"
-    ]
-
-    fig = px.pie(
-        catalogo,
-        names="Tipo",
-        values="Cantidad",
-        hole=0.45,
-        title="Películas vs. series"
-    )
-
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
-
-# ------------------------------------------------------------
-# RATING
-# ------------------------------------------------------------
-
-with col2:
-
-    st.subheader("Rating promedio")
-
-    rating = (
-        data.groupby("tipo")["vote_average"]
-        .mean()
-        .reset_index()
-    )
-
-    fig = px.bar(
-        rating,
-        x="tipo",
-        y="vote_average",
-        title="Rating promedio por tipo",
-        labels={
-            "tipo": "Contenido",
-            "vote_average": "Rating"
-        },
-        range_y=[0, 10]
-    )
-
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
-
-# ============================================================
-# SEGUNDA FILA
-# ============================================================
-
-col1, col2 = st.columns(2)
-
-# ------------------------------------------------------------
-# EVOLUCIÓN TEMPORAL
-# ------------------------------------------------------------
-
-with col1:
-
-    st.subheader("Evolución del catálogo")
-
-    evolution = (
-        data.groupby(
-            ["year", "tipo"]
-        )
-        .size()
-        .reset_index(name="cantidad")
-    )
-
-    fig = px.line(
-        evolution,
-        x="year",
-        y="cantidad",
-        color="tipo",
-        markers=True,
-        title="Cantidad de títulos por año",
-        labels={
-            "year": "Año",
-            "cantidad": "Títulos",
-            "tipo": "Tipo"
-        }
-    )
-
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
-
-# ------------------------------------------------------------
-# VOTOS
-# ------------------------------------------------------------
-
-with col2:
-
-    st.subheader("Interacción observable")
-
-    votes = (
-        data.groupby("tipo")["vote_count"]
-        .mean()
-        .reset_index()
-    )
-
-    fig = px.bar(
-        votes,
-        x="tipo",
-        y="vote_count",
-        title="Promedio de votos por tipo",
-        labels={
-            "tipo": "Contenido",
-            "vote_count": "Promedio de votos"
-        }
-    )
-
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
-
-st.divider()
-
-# ============================================================
-# GÉNEROS
-# ============================================================
-
-st.subheader("🎭 Principales géneros")
-
-genre_data = data[
-    data["genres"].notna()
-].copy()
-
-genre_data["genres"] = (
-    genre_data["genres"]
-    .astype(str)
-    .str.split(",")
-)
-
-genre_data = genre_data.explode("genres")
-
-genre_data["genres"] = (
-    genre_data["genres"]
-    .str.strip()
-)
-
-top_genres = (
-    genre_data["genres"]
-    .value_counts()
-    .head(10)
-    .reset_index()
-)
-
-top_genres.columns = [
-    "Genero",
-    "Cantidad"
-]
-
-fig = px.bar(
-    top_genres.sort_values("Cantidad"),
-    x="Cantidad",
-    y="Genero",
-    orientation="h",
-    title="Top 10 géneros del catálogo",
-    labels={
-        "Cantidad": "Cantidad de títulos",
-        "Genero": "Género"
-    }
-)
-
-st.plotly_chart(
-    fig,
-    use_container_width=True
-)
-
-st.divider()
-
-# ============================================================
-# INFORMACIÓN FINANCIERA
-# ============================================================
-
-st.subheader("💰 Información financiera")
-
-financial = data[
-    (data["tipo"] == "Película") &
-    (data["budget"] > 0) &
-    (data["revenue"] > 0)
-].copy()
-
-if len(financial) > 0:
-
-    col1, col2, col3 = st.columns(3)
-
-    avg_budget = financial["budget"].mean()
-    avg_revenue = financial["revenue"].mean()
-
-    with col1:
-        st.metric(
-            "Presupuesto promedio",
-            f"${avg_budget / 1_000_000:.1f} M"
-        )
-
-    with col2:
-        st.metric(
-            "Ingresos promedio",
-            f"${avg_revenue / 1_000_000:.1f} M"
-        )
-
-    with col3:
-        ratio = avg_revenue / avg_budget
-
-        st.metric(
-            "Ingresos / presupuesto",
-            f"{ratio:.2f}x"
-        )
-
-    # Scatter
-    fig = px.scatter(
-        financial,
-        x="budget",
-        y="revenue",
-        hover_data=["title", "year"],
-        title="Presupuesto vs. ingresos",
-        labels={
-            "budget": "Presupuesto",
-            "revenue": "Ingresos"
-        }
-    )
-
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
-
-else:
-
-    st.warning(
-        "No existen datos financieros válidos para los filtros seleccionados."
-    )
-
-st.divider()
-
-# ============================================================
-# CONCLUSIONES
-# ============================================================
-
-st.subheader("📌 Hallazgos principales")
-
-st.markdown(
-    """
-### 1. Catálogo amplio
-StreamView dispone de un catálogo de gran tamaño, compuesto por
-películas y series.
-
-### 2. Diferencias entre formatos
-Las películas y series presentan diferencias en rating e interacción
-observable mediante la cantidad de votos.
-
-### 3. Concentración de géneros
-El catálogo presenta concentración en determinados géneros, lo que
-permite identificar oportunidades de diversificación.
-
-### 4. Información financiera limitada
-Los datos de presupuesto e ingresos están disponibles solamente para
-una parte del catálogo de películas.
-
-### 5. Oportunidad de mejora
-La incorporación de datos de usuarios, reproducciones y suscripciones
-permitiría complementar este análisis con indicadores de retención,
-comportamiento y churn.
-"""
-)
-
-st.success(
-    "🎯 No se trata de tener más contenido. Se trata de invertir mejor."
-)
-
-# ============================================================
-# PIE
-# ============================================================
-
-st.caption(
-    "StreamView Analytics | Proyecto de Visualización de Datos"
-  )
+def data(): return load_clean()
+
+def reset_filters():
+    st.session_state['tipos'] = ['Película', 'Serie']
+    st.session_state['anios'] = (2010, 2025)
+    st.session_state['generos'] = []
+
+ALIASES = {'United States of America':'USA','South Korea':'KOR','North Korea':'PRK','Russia':'RUS','Vietnam':'VNM','Czech Republic':'CZE','Kosovo':'XKX','Iran':'IRN','Syria':'SYR','Laos':'LAO','Bolivia':'BOL','Venezuela':'VEN','Taiwan':'TWN','Palestine':'PSE',"Cote D'Ivoire":'CIV','Faeroe Islands':'FRO','Guadaloupe':'GLP','Macedonia':'MKD','Netherlands Antilles':'ANT','Palestinian Territory':'PSE','St. Kitts and Nevis':'KNA','St. Lucia':'LCA','St. Pierre and Miquelon':'SPM','Turkey':'TUR','US Virgin Islands':'VIR'}
+def iso3(country):
+    if country in ALIASES: return ALIASES[country]
+    try: return pycountry.countries.lookup(country).alpha_3
+    except LookupError: return None
+
+df0 = data()
+st.title('StreamView Analytics')
+st.subheader('Dashboard ejecutivo en Python')
+st.caption('Audiencia: Directorio y Gerencia General. La audiencia de Contenidos y Adquisición se implementa en el PBIX de la carpeta powerbi/.')
+st.sidebar.header('Filtros ejecutivos')
+types = st.sidebar.multiselect('Tipo de contenido', ['Película','Serie'], default=['Película','Serie'], key='tipos')
+years = st.sidebar.slider('Rango de años de estreno',2010,2025,(2010,2025),key='anios')
+genres = st.sidebar.multiselect('Género', sorted(explode(df0,'genres').genres.unique()), key='generos')
+st.sidebar.button('Limpiar filtros', on_click=reset_filters)
+df = filter_catalog(df0, types=types, years=years, genres=genres)
+st.caption(f'{len(df):,} títulos únicos seleccionados. Fuente: Netflix Movies y TV Shows hasta 2025. Año de estreno y año de incorporación son variables diferentes.')
+if df.empty:
+    st.warning('No hay títulos con los filtros seleccionados. Cambia los filtros o usa Limpiar filtros.')
+    st.stop()
+k = M.kpis_catalogo(df)
+columns = st.columns(6)
+for c,label,value in zip(columns,['Contenidos','Películas','Series','Países','Idiomas','Géneros'],[k['total'],k['peliculas'],k['series'],k['paises'],k['idiomas'],k['generos']]): c.metric(label,f'{value:,}')
+a,b,c = st.columns(3)
+a.metric('Popularidad promedio',f'{df.popularidad.mean():.2f}')
+b.metric('Calificación promedio',f'{df.calificacion.mean():.2f} / 10')
+c.metric('Votaciones promedio',f'{df.votos.mean():.1f}')
+view,territory,d3tab = st.tabs(['Vista general','Países e idiomas','Exploración D3'])
+with view:
+    a,b = st.columns(2)
+    for target,column,title in [(a,'anio','Títulos por año de estreno'),(b,'anio_incorporacion','Incorporaciones por año')]:
+        temp = df.groupby([column,'tipo']).size().reset_index(name='titulos')
+        line = px.line(temp,x=column,y='titulos',color='tipo',markers=True,color_discrete_map=PAL,title=title,labels={column:'Año','titulos':'Títulos','tipo':'Tipo'})
+        line.update_yaxes(range=[0, max(temp.titulos.max()*1.15,1)])
+        target.plotly_chart(line, width='stretch')
+    st.caption('La distribución por año de estreno es casi uniforme en la fuente; no permite afirmar crecimiento real del catálogo.')
+    a,b = st.columns(2)
+    g = M.top_generos(df)
+    a.plotly_chart(px.bar(g.iloc[::-1],x='titulos',y='genres',orientation='h',title='Top 10 géneros',labels={'genres':'Género','titulos':'Títulos'},color_discrete_sequence=['#1f4e79']),width='stretch')
+    p = M.top_paises(df)
+    b.plotly_chart(px.bar(p.iloc[::-1],x='titulos',y='country',orientation='h',title='Top 10 países',labels={'country':'País','titulos':'Títulos'},color_discrete_sequence=['#1f4e79']),width='stretch')
+    dist = df.groupby('tipo').size().reset_index(name='titulos')
+    st.plotly_chart(px.bar(dist,x='tipo',y='titulos',color='tipo',color_discrete_map=PAL,title='Películas y series',labels={'tipo':'Tipo','titulos':'Títulos'}),width='stretch')
+with territory:
+    p = explode(df,'country').groupby('country').size().reset_index(name='titulos')
+    p['iso3'] = p.country.map(iso3)
+    mapped = p[p.iso3.notna()]
+    fig=px.choropleth(mapped,locations='iso3',locationmode='ISO-3',color='titulos',hover_name='country',color_continuous_scale='Blues',title='Producciones por país',labels={'titulos':'Títulos'})
+    st.plotly_chart(fig,width='stretch',config=MAP_CONFIG)
+    st.caption('Países y géneros son multivalor. Un título puede aparecer en más de una categoría; el total de contenidos siempre cuenta títulos únicos.')
+    if p.iso3.isna().any():st.caption('Sin correspondencia geográfica: '+', '.join(p.loc[p.iso3.isna(),'country']))
+    l=M.idiomas(df).melt(id_vars=['idioma','total'],var_name='tipo',value_name='titulos')
+    st.plotly_chart(px.bar(l,x='idioma',y='titulos',color='tipo',barmode='group',color_discrete_map=PAL,title='Idiomas principales',labels={'idioma':'Código de idioma','titulos':'Títulos','tipo':'Tipo'}),width='stretch')
+    st.dataframe(p[['country','titulos']],hide_index=True,width='stretch')
+with d3tab:
+    g=explode(df,'genres').groupby('genres').agg(titulos=('show_id','size'),calificacion=('calificacion','mean')).reset_index().rename(columns={'genres':'genero'})
+    library=(ROOT/'dashboard/d3/vendor/d3.v7.min.js').read_text(encoding='utf-8')
+    template=(ROOT/'dashboard/d3/generos.html').read_text(encoding='utf-8-sig')
+    payload=json.dumps(g.to_dict('records'),ensure_ascii=False).replace('<','\\u003c')
+    components.html(template.replace('__D3_LIBRARY__',library).replace('__DATA__',payload),height=530,scrolling=False)
+st.download_button('Descargar catálogo filtrado',df.to_csv(index=False).encode('utf-8'),'catalogo_filtrado.csv','text/csv')
+st.info('No hay clasificación etaria utilizable en la fuente. Popularidad y votos no equivalen a reproducciones ni permiten medir retención o churn.')

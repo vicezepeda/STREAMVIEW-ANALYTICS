@@ -1,0 +1,12 @@
+{
+  "name": "StreamView simple",
+  "dataColors": [
+    "#1f4e79",
+    "#f28e2b",
+    "#5B9BD5",
+    "#A5A5A5"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#222222",
+  "tableAccent": "#1f4e79"
+}

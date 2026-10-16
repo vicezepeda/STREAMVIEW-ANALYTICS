@@ -1,0 +1,99 @@
+// Titulos
+Titulos = DISTINCTCOUNT(Catalogo[Clave])
+
+// Peliculas
+Peliculas = CALCULATE([Titulos], KEEPFILTERS(Catalogo[Tipo] = "Película"))
+
+// Series
+Series = CALCULATE([Titulos], KEEPFILTERS(Catalogo[Tipo] = "Serie"))
+
+// Paises representados
+Paises representados = DISTINCTCOUNT(Paises[Pais])
+
+// Idiomas disponibles
+Idiomas disponibles = DISTINCTCOUNT(Catalogo[Idioma])
+
+// Generos disponibles
+Generos disponibles = DISTINCTCOUNT(Generos[Genero])
+
+// Popularidad media
+Popularidad media = AVERAGE(Catalogo[Popularidad])
+
+// Popularidad mediana
+Popularidad mediana = MEDIAN(Catalogo[Popularidad])
+
+// Calificacion media
+Calificacion media = AVERAGE(Catalogo[Calificacion])
+
+// Votaciones promedio
+Votaciones promedio = AVERAGE(Catalogo[Votos])
+
+// Calificacion ponderada
+Calificacion ponderada = VAR D = FILTER(Catalogo, Catalogo[MuestraRating]="Sí") RETURN DIVIDE(SUMX(D,Catalogo[Calificacion]*Catalogo[Votos]),SUMX(D,Catalogo[Votos]))
+
+// Titulos ranking
+Titulos ranking = CALCULATE([Titulos], KEEPFILTERS(Catalogo[Votos]>=1000))
+
+// Rating ranking
+Rating ranking = CALCULATE([Calificacion media], KEEPFILTERS(Catalogo[Votos]>=1000))
+
+// Votos ranking
+Votos ranking = CALCULATE(SUM(Catalogo[Votos]), KEEPFILTERS(Catalogo[Votos]>=1000))
+
+// Calificacion mapa
+Calificacion mapa = VAR N=CALCULATE([Titulos],Catalogo[MuestraRating]="Sí") RETURN IF(N>=30,CALCULATE([Calificacion media],Catalogo[MuestraRating]="Sí"))
+
+// Presupuesto total
+Presupuesto total = CALCULATE(SUM(Catalogo[Presupuesto]), KEEPFILTERS(Catalogo[Finanzas]="Sí"))
+
+// Ingresos totales
+Ingresos totales = CALCULATE(SUM(Catalogo[Ingresos]), KEEPFILTERS(Catalogo[Finanzas]="Sí"))
+
+// Presupuesto promedio
+Presupuesto promedio = CALCULATE(AVERAGE(Catalogo[Presupuesto]), KEEPFILTERS(Catalogo[Finanzas]="Sí"))
+
+// Ingresos promedio
+Ingresos promedio = CALCULATE(AVERAGE(Catalogo[Ingresos]), KEEPFILTERS(Catalogo[Finanzas]="Sí"))
+
+// Muestra financiera
+Muestra financiera = CALCULATE([Titulos], KEEPFILTERS(Catalogo[Finanzas]="Sí"))
+
+// Cobertura financiera
+Cobertura financiera = DIVIDE([Muestra financiera],[Peliculas])
+
+// ROI agregado
+ROI agregado = DIVIDE([Ingresos totales]-[Presupuesto total],[Presupuesto total])
+
+// Ratio ingresos presupuesto
+Ratio ingresos presupuesto = DIVIDE([Ingresos totales],[Presupuesto total])
+
+// ROI mediano
+ROI mediano = CALCULATE(MEDIAN(Catalogo[ROI]),KEEPFILTERS(Catalogo[Finanzas]="Sí"))
+
+// Peliculas bajo presupuesto
+Peliculas bajo presupuesto = CALCULATE([Muestra financiera], KEEPFILTERS(Catalogo[Presupuesto]<=10000000), KEEPFILTERS(Catalogo[ROI]>0))
+
+// ROI bajo presupuesto
+ROI bajo presupuesto = CALCULATE([ROI agregado],KEEPFILTERS(Catalogo[Presupuesto]<=10000000), KEEPFILTERS(Catalogo[ROI]>0))
+
+// Top paises
+Top paises = VAR V = [Titulos] VAR R = RANKX(ALLSELECTED(Paises[Pais]), [Titulos], , DESC, Skip) RETURN IF(NOT ISBLANK(V) && R<=10,V)
+
+// Top generos
+Top generos = VAR V = [Titulos] VAR R = RANKX(ALLSELECTED(Generos[Genero]), [Titulos], , DESC, Skip) RETURN IF(NOT ISBLANK(V) && R<=10,V)
+
+// Top actores
+Top actores = VAR V = [Titulos] VAR R = RANKX(ALLSELECTED(Actores[Actor]), [Titulos], , DESC, Skip) RETURN IF(NOT ISBLANK(V) && R<=10,V)
+
+// Top directores
+Top directores = VAR V = [Titulos] VAR R = RANKX(ALLSELECTED(Directores[Director]), [Titulos], , DESC, Skip) RETURN IF(NOT ISBLANK(V) && R<=10,V)
+
+// Top ingresos
+Top ingresos = VAR V = [Ingresos totales] VAR R = RANKX(ALLSELECTED(Catalogo[Titulo]), [Ingresos totales], , DESC, Skip) RETURN IF(NOT ISBLANK(V) && R<=10,V)
+
+// Top rating
+Top rating = VAR V = [Rating ranking] VAR R = RANKX(ALLSELECTED(Catalogo[Titulo]), [Rating ranking], , DESC, Skip) RETURN IF(NOT ISBLANK(V) && R<=10,V)
+
+// Top bajo presupuesto
+Top bajo presupuesto = VAR V = [ROI bajo presupuesto] VAR R = RANKX(ALLSELECTED(Catalogo[Titulo]), [ROI bajo presupuesto], , DESC, Skip) RETURN IF(NOT ISBLANK(V) && R<=10,V)
+
