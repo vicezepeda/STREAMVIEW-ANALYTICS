@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from src.prep import load_clean,explode,load_raw,clean
-from src.metrics import kpis_financieros,top_generos
+from src.metrics import kpis_financieros,top_generos,kpis_catalogo,rated_catalog
 from src.filters import filter_catalog
 
 class CatalogTests(unittest.TestCase):
@@ -34,5 +34,15 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(len(filter_catalog(self.df,countries=['United States of America'])),10955)
     def test_empty_type_selection_is_safe(self):
         self.assertTrue(filter_catalog(self.df,types=[]).empty)
+    def test_rating_excludes_unrated_titles_and_popularity_uses_median(self):
+        k = kpis_catalogo(self.df)
+        self.assertEqual(k['calificacion_n'],27414)
+        self.assertEqual(k['calificacion_cero'],4564)
+        self.assertAlmostEqual(k['calificacion_media'],6.634187021230028)
+        self.assertAlmostEqual(k['popularidad_mediana'],22.071)
+        self.assertAlmostEqual(k['calificacion_con_votos_suficientes'],6.651343051266214)
+    def test_unrated_subset_does_not_produce_a_false_zero_rating(self):
+        missing=self.df[self.df.votos.eq(0)]
+        self.assertTrue(rated_catalog(missing).empty)
 
 if __name__=='__main__': unittest.main()

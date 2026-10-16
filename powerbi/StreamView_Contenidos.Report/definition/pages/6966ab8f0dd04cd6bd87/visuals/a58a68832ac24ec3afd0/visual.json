@@ -129,7 +129,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Dispersión: películas con mínimo 50 votos y series con mínimo 30. La popularidad no mide reproducciones.",
+                    "value": "Calificación: títulos con votos > 0 y nota > 0. Dispersión: mínimo 50 votos en películas y 30 en series. Popularidad no equivale a reproducciones.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "11pt",

@@ -7,6 +7,8 @@ class ExecutiveAppTests(unittest.TestCase):
     def test_initial_load_and_empty_selection(self):
         app=self.app();self.assertEqual(len(app.exception),0)
         self.assertEqual(app.metric[0].value,'31,991')
+        self.assertEqual(app.metric[6].value,'22.07')
+        self.assertEqual(app.metric[7].value,'6.63 / 10')
         app.multiselect(key='tipos').set_value([]).run()
         self.assertEqual(len(app.exception),0)
         self.assertGreater(len(app.warning),0)

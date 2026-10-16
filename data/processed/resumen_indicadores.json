@@ -6,13 +6,19 @@
     "paises": 147,
     "idiomas": 83,
     "generos": 28,
+    "calificacion_media": 6.634187021230028,
+    "calificacion_con_votos_suficientes": 6.651343051266214,
+    "calificacion_n": 27414,
+    "calificacion_excluidos": 4577,
+    "calificacion_cero": 4564,
+    "sin_votos": 4560,
+    "popularidad_media": 42.62542924572536,
+    "popularidad_mediana": 22.071,
     "popularidad_mediana_peliculas": 10.913499999999999,
     "popularidad_mediana_series": 36.2,
     "calificacion_prom_ponderada": 6.9749129728593,
     "pct_en": 43.665405895408085,
-    "pct_asia": 24.563158388296706,
-    "calificacion_media": 5.688118627113876,
-    "popularidad_media": 42.62542924572536
+    "pct_asia": 24.563158388296706
   },
   "finanzas": {
     "n": 3523,

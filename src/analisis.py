@@ -10,8 +10,6 @@ from src import metrics as M
 def resumen():
     df=load_clean()
     values={"catalogo":M.kpis_catalogo(df),"finanzas":M.kpis_financieros(df)}
-    values['catalogo']['calificacion_media']=df.calificacion.mean()
-    values['catalogo']['popularidad_media']=df.popularidad.mean()
     return values
 
 if __name__=='__main__':

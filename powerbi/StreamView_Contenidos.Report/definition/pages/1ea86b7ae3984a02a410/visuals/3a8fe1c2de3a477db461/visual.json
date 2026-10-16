@@ -25,7 +25,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 10 películas por ingresos'"
+                  "Value": "'Top 10 películas por ingresos (MUSD)'"
                 }
               }
             },
@@ -152,11 +152,11 @@
                       "Entity": "Catalogo"
                     }
                   },
-                  "Property": "Top ingresos"
+                  "Property": "Top ingresos millones"
                 }
               },
-              "queryRef": "Catalogo.Top ingresos",
-              "nativeQueryRef": "Top ingresos"
+              "queryRef": "Catalogo.Top ingresos millones",
+              "nativeQueryRef": "Top ingresos millones"
             }
           ]
         }
@@ -171,7 +171,7 @@
                     "Entity": "Catalogo"
                   }
                 },
-                "Property": "Top ingresos"
+                "Property": "Top ingresos millones"
               }
             },
             "direction": "Descending"

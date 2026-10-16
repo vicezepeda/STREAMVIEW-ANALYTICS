@@ -133,10 +133,10 @@
                       "Entity": "Catalogo"
                     }
                   },
-                  "Property": "Muestra financiera"
+                  "Property": "Peliculas con finanzas"
                 }
               },
-              "queryRef": "Catalogo.Muestra financiera",
+              "queryRef": "Catalogo.Peliculas con finanzas",
               "nativeQueryRef": "Muestra financiera"
             }
           ]

@@ -5,6 +5,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -129,9 +130,30 @@ def f7_paises_calificacion(df):
 def main():
     df = load_clean()
     for fn in [f1_evolucion, f2_paises, f3_generos, f4_idiomas,
-               f5_popularidad_calificacion, f6_presupuesto_ingresos, f7_paises_calificacion]:
+               f5_popularidad_calificacion, f6_presupuesto_ingresos, f7_paises_calificacion,
+               f8_relacion_por_tipo]:
         fn(df)
     print("figuras:", sorted(p.name for p in OUT.glob("*.png")))
+
+
+def f8_relacion_por_tipo(df):
+    """Muestra completa con votos suficientes, separada por tipo para evitar mezcla."""
+    d = M.rated_catalog(df, sufficient=True)
+    d = d[d.popularidad > 0]
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.5), sharey=True)
+    for ax, (tipo, color) in zip(axes, [('Película', C_PEL), ('Serie', C_SER)]):
+        g = d[d.tipo == tipo]
+        sns.scatterplot(data=g, x='popularidad', y='calificacion', s=9,
+                        alpha=.25, color=color, ax=ax, legend=False)
+        pearson = g.popularidad.corr(g.calificacion)
+        spearman = g.popularidad.rank().corr(g.calificacion.rank())
+        ax.set_xscale('log')
+        ax.set_ylim(0, 10)
+        ax.set_title(f'{tipo}: n={len(g):,}\nr={pearson:.3f}, rho={spearman:.3f}', loc='left')
+        ax.set_xlabel('Popularidad (escala log)')
+        ax.set_ylabel('Calificación (0 a 10)')
+    fig.suptitle('Relación positiva débil por rangos; popularidad no garantiza calificación alta', fontsize=11)
+    _save(fig, 'f8_relacion_por_tipo_seaborn.png')
 
 
 if __name__ == "__main__":

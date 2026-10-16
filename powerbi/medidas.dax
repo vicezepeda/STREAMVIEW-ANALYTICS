@@ -23,7 +23,7 @@ Popularidad media = AVERAGE(Catalogo[Popularidad])
 Popularidad mediana = MEDIAN(Catalogo[Popularidad])
 
 // Calificacion media
-Calificacion media = AVERAGE(Catalogo[Calificacion])
+Calificacion media = CALCULATE(AVERAGE(Catalogo[Calificacion]), KEEPFILTERS(Catalogo[Votos]>0), KEEPFILTERS(Catalogo[Calificacion]>0), KEEPFILTERS(Catalogo[Calificacion]<=10))
 
 // Votaciones promedio
 Votaciones promedio = AVERAGE(Catalogo[Votos])
@@ -96,4 +96,31 @@ Top rating = VAR V = [Rating ranking] VAR R = RANKX(ALLSELECTED(Catalogo[Titulo]
 
 // Top bajo presupuesto
 Top bajo presupuesto = VAR V = [ROI bajo presupuesto] VAR R = RANKX(ALLSELECTED(Catalogo[Titulo]), [ROI bajo presupuesto], , DESC, Skip) RETURN IF(NOT ISBLANK(V) && R<=10,V)
+
+// Calificaciones validas
+Calificaciones validas = CALCULATE([Titulos], KEEPFILTERS(Catalogo[Votos]>0), KEEPFILTERS(Catalogo[Calificacion]>0), KEEPFILTERS(Catalogo[Calificacion]<=10))
+
+// Total contenidos
+Total contenidos = FORMAT([Titulos],"#,0","es-CL")
+
+// Peliculas con finanzas
+Peliculas con finanzas = FORMAT([Muestra financiera],"#,0","es-CL")
+
+// Presupuesto promedio MUSD
+Presupuesto promedio MUSD = FORMAT(DIVIDE([Presupuesto promedio],1000000),"#,0.00","es-CL")
+
+// Presupuesto total MUSD
+Presupuesto total MUSD = FORMAT(DIVIDE([Presupuesto total],1000000),"#,0.0","es-CL")
+
+// Ingresos totales MUSD
+Ingresos totales MUSD = FORMAT(DIVIDE([Ingresos totales],1000000),"#,0.0","es-CL")
+
+// Presupuesto millones
+Presupuesto millones = DIVIDE([Presupuesto total],1000000)
+
+// Ingresos millones
+Ingresos millones = DIVIDE([Ingresos totales],1000000)
+
+// Top ingresos millones
+Top ingresos millones = DIVIDE([Top ingresos],1000000)
 
