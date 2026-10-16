@@ -1,0 +1,18 @@
+{
+  "filas_raw_peliculas": 16000,
+  "filas_raw_series": 16000,
+  "show_id_compartidos_entre_tipos": 397,
+  "duplicados_tipo_showid_eliminados": 9,
+  "filas_limpias": 31991,
+  "peliculas": 16000,
+  "series": 15991,
+  "peliculas_presupuesto_disponible": 4792,
+  "peliculas_ingresos_disponibles": 5610,
+  "peliculas_con_ambos_datos": 3523,
+  "montos_menores_a_1000_usd_excluidos": 90,
+  "series_con_votos_suficientes": 4005,
+  "peliculas_con_votos_suficientes": 12185,
+  "duracion_disponible": "No: peliculas vacia, series con valor constante '1 Seasons'",
+  "clasificacion_etaria_disponible": false,
+  "anios_por_tipo_con_1000_titulos_exactos": false
+}
