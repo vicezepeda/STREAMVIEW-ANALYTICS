@@ -1,5 +1,8 @@
 """Guion breve basado en las métricas comunes, sin inferir crecimiento."""
-from analisis import resumen
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src.analisis import resumen
 
 if __name__=='__main__':
     values=resumen();k=values['catalogo'];f=values['finanzas']

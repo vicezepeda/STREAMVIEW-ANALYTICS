@@ -39,6 +39,7 @@ def clean(m, t):
     log["show_id_compartidos_entre_tipos"] = int(len(set(m.show_id) & set(t.show_id)))
 
     df = pd.concat([m, t], ignore_index=True)
+    df['show_id'] = df['show_id'].astype(str)
     df["tipo"] = df["type"].map({"Movie": "Película", "TV Show": "Serie"})
     dup = df.duplicated(subset=["tipo", "show_id"], keep="first")
     log["duplicados_tipo_showid_eliminados"] = int(dup.sum())

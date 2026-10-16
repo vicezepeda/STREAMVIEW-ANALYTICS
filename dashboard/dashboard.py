@@ -6,7 +6,6 @@ import pandas as pd
 import plotly.express as px
 import pycountry
 import streamlit as st
-import streamlit.components.v1 as components
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.prep import load_clean, explode
@@ -36,8 +35,11 @@ st.title('StreamView Analytics')
 st.subheader('Dashboard ejecutivo en Python')
 st.caption('Audiencia: Directorio y Gerencia General. La audiencia de Contenidos y Adquisición se implementa en el PBIX de la carpeta powerbi/.')
 st.sidebar.header('Filtros ejecutivos')
-types = st.sidebar.multiselect('Tipo de contenido', ['Película','Serie'], default=['Película','Serie'], key='tipos')
-years = st.sidebar.slider('Rango de años de estreno',2010,2025,(2010,2025),key='anios')
+for key, initial in {'tipos': ['Película', 'Serie'], 'anios': (2010, 2025), 'generos': []}.items():
+    if key not in st.session_state:
+        st.session_state[key] = initial
+types = st.sidebar.multiselect('Tipo de contenido', ['Película','Serie'], key='tipos')
+years = st.sidebar.slider('Rango de años de estreno',2010,2025,key='anios')
 genres = st.sidebar.multiselect('Género', sorted(explode(df0,'genres').genres.unique()), key='generos')
 st.sidebar.button('Limpiar filtros', on_click=reset_filters)
 df = filter_catalog(df0, types=types, years=years, genres=genres)
@@ -84,6 +86,7 @@ with d3tab:
     library=(ROOT/'dashboard/d3/vendor/d3.v7.min.js').read_text(encoding='utf-8')
     template=(ROOT/'dashboard/d3/generos.html').read_text(encoding='utf-8-sig')
     payload=json.dumps(g.to_dict('records'),ensure_ascii=False).replace('<','\\u003c')
-    components.html(template.replace('__D3_LIBRARY__',library).replace('__DATA__',payload),height=530,scrolling=False)
+    st.iframe(template.replace('__D3_LIBRARY__',library).replace('__DATA__',payload),
+              height=530, alt='Comparación de géneros con D3')
 st.download_button('Descargar catálogo filtrado',df.to_csv(index=False).encode('utf-8'),'catalogo_filtrado.csv','text/csv')
 st.info('No hay clasificación etaria utilizable en la fuente. Popularidad y votos no equivalen a reproducciones ni permiten medir retención o churn.')

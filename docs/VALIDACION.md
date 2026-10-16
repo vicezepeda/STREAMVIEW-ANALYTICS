@@ -1,11 +1,23 @@
-# Validación de la corrección
+# Validación de la entrega
 
-Se ejecutaron 11 pruebas automáticas mediante `python -m unittest discover -s tests -v`: todas aprobaron. Comprueban catálogo, filtros, muestra financiera, aplicación ejecutiva y estructura del PBIX. Las definiciones JSON del informe Power BI también se validaron contra sus esquemas.
+Revisión del 16 de octubre de 2026.
 
-En navegador se comprobó la carga de Streamlit, el filtro de películas (16.000), el reinicio (31.991), el mapa y el selector de medida del componente D3. Las capturas de `docs/evidencias/` corresponden a esa aplicación real.
+## Comprobaciones realizadas
 
-El informe PDF de ocho páginas y las diez diapositivas se renderizaron y revisaron visualmente. Los gráficos analíticos de los documentos se reproducen con los datos y criterios del PBIX; no son capturas de Power BI Desktop.
+- Doce pruebas automáticas aprobadas con `python -m unittest discover -s tests -v`.
+- Los CSV originales reproducen el catálogo entregado: 31.991 títulos únicos, después de nueve duplicados eliminados.
+- El cuaderno completo ejecutó sus cinco celdas de código sin errores. Utiliza el mismo catálogo limpio y las mismas métricas del dashboard.
+- Se ejecutaron preparación, resumen, narrativa y exportación de siete figuras estáticas.
+- Python y D3 comprobados en navegador. D3 cambia entre cantidad y calificación y muestra valores al pasar el cursor. El mapa ejecutivo utiliza topología local.
+- El PBIX se abrió en Power BI Desktop. Las 52 consultas del modelo abierto respondieron correctamente. Sus KPIs coinciden con Python: 31.991 títulos, 16.000 películas, 15.991 series, muestra financiera de 3.523, cobertura 22,01875% y ROI agregado aproximado 191,682234%.
+- Las definiciones PBIR cumplen los esquemas JSON oficiales de Microsoft. Se comprobó la integridad del contenedor PBIX.
+- Las ocho páginas del informe y doce diapositivas se renderizaron y revisaron visualmente. Los gráficos de la presentación permanecen editables.
+- La pull request #1 está integrada en main mediante 5596b6d. La revisión final conserva una rama separada.
 
-Pendiente: abrir el PBIX en Power BI Desktop y comprobar visualmente sus páginas, filtros, interacciones y mapa Azure. La validación estructural no sustituye esa prueba. También quedan pendientes la publicación de la rama, la pull request y su integración remota.
+## Límites de la comprobación
 
-Las advertencias de Streamlit sobre el componente HTML no impidieron las pruebas ni la interacción D3. Debe revisarse su compatibilidad al actualizar Streamlit.
+La captura de pantalla de Power BI Desktop falló con `FrameArrived timed out`. La lectura de accesibilidad tampoco permitió inspeccionar sus visuales. Por ello sigue pendiente comprobar manualmente las tres páginas, los filtros, las interacciones y Azure Maps. Las consultas correctas y los esquemas válidos no sustituyen esa revisión visual.
+
+Las capturas incluidas corresponden al navegador Python y a GitHub. Los gráficos analíticos del PDF y PowerPoint se reproducen con los datos y criterios del PBIX; no son capturas de Desktop.
+
+No existe clasificación etaria utilizable en la fuente. El requisito correspondiente se documenta como limitación y debe validarse con la docente. Los datos financieros son parciales y el ROI no representa la rentabilidad de StreamView.
