@@ -1,0 +1,29 @@
+{
+  "catalogo": {
+    "total": 31991,
+    "peliculas": 16000,
+    "series": 15991,
+    "paises": 147,
+    "idiomas": 83,
+    "generos": 28,
+    "popularidad_mediana_peliculas": 10.913499999999999,
+    "popularidad_mediana_series": 36.2,
+    "calificacion_prom_ponderada": 6.9749129728593,
+    "pct_en": 43.665405895408085,
+    "pct_asia": 24.563158388296706,
+    "calificacion_media": 5.688118627113876,
+    "popularidad_media": 42.62542924572536
+  },
+  "finanzas": {
+    "n": 3523,
+    "cobertura_pct": 22.01875,
+    "presupuesto_prom": 35749091.941527106,
+    "ingresos_prom": 104273750.0139086,
+    "presupuesto_total": 125944050910.0,
+    "ingresos_total": 367356421299.0,
+    "ratio_ingresos_presupuesto": 2.916822340116041,
+    "roi_agregado_pct": 191.6822340116041,
+    "roi_mediano_pct": 70.432927,
+    "pct_recuperan_presupuesto": 63.298325290945215
+  }
+}
