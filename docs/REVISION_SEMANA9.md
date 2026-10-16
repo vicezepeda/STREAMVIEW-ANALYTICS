@@ -1,3 +1,7 @@
+# Antecedente de la primera corrección
+
+Este documento conserva el contexto de la primera revisión. Para la entrega actual usar README.md, VALIDACION.md, RESPUESTAS_NEGOCIO.md y GITHUB_FLOW.md. Los documentos finales se encuentran en entregables/.
+
 # Corrección del feedback de semana 9
 
 ## Diagnóstico de la versión remota revisada

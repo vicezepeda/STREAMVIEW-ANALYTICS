@@ -1,0 +1,27 @@
+COMANDO: python -m unittest discover -s tests -v
+DIRECTORIO: raiz del proyecto
+
+test_country_filter_is_exact_not_substring (test_catalog.CatalogTests.test_country_filter_is_exact_not_substring) ... ok
+test_empty_type_selection_is_safe (test_catalog.CatalogTests.test_empty_type_selection_is_safe) ... ok
+test_explode_counts_unique_titles_in_category (test_catalog.CatalogTests.test_explode_counts_unique_titles_in_category) ... ok
+test_finance_has_paired_population_and_original_denominator (test_catalog.CatalogTests.test_finance_has_paired_population_and_original_denominator) ... ok
+test_key_preserves_movies_and_series (test_catalog.CatalogTests.test_key_preserves_movies_and_series) ... ok
+test_rating_excludes_unrated_titles_and_popularity_uses_median (test_catalog.CatalogTests.test_rating_excludes_unrated_titles_and_popularity_uses_median) ... ok
+test_raw_sources_reproduce_the_delivered_catalog (test_catalog.CatalogTests.test_raw_sources_reproduce_the_delivered_catalog) ... ok
+test_series_have_no_finance (test_catalog.CatalogTests.test_series_have_no_finance) ... ok
+test_unrated_subset_does_not_produce_a_false_zero_rating (test_catalog.CatalogTests.test_unrated_subset_does_not_produce_a_false_zero_rating) ... ok
+test_filter_movies_and_reset (test_dashboard.ExecutiveAppTests.test_filter_movies_and_reset) ... 2026-10-16 20:02:29.072 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_genre_filter_agrees_with_unique_pbix_count (test_dashboard.ExecutiveAppTests.test_genre_filter_agrees_with_unique_pbix_count) ... 2026-10-16 20:02:40.851 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_initial_load_and_empty_selection (test_dashboard.ExecutiveAppTests.test_initial_load_and_empty_selection) ... 2026-10-16 20:02:46.320 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_finance_measures_keep_paired_data_rule (test_powerbi.PowerBIArtifactTests.test_finance_measures_keep_paired_data_rule) ... ok
+test_pbix_contains_model_and_three_analytic_pages (test_powerbi.PowerBIArtifactTests.test_pbix_contains_model_and_three_analytic_pages) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 26.822s
+
+OK
+
+CODIGO_SALIDA=0
