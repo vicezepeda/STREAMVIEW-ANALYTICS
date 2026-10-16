@@ -2,7 +2,7 @@ import unittest
 import sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from src.prep import load_clean,explode
+from src.prep import load_clean,explode,load_raw,clean
 from src.metrics import kpis_financieros,top_generos
 from src.filters import filter_catalog
 
@@ -13,6 +13,11 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(len(self.df),31991)
         self.assertFalse(self.df.duplicated(['tipo','show_id']).any())
         self.assertEqual((self.df.tipo=='Película').sum(),16000)
+    def test_raw_sources_reproduce_the_delivered_catalog(self):
+        import pandas as pd
+        rebuilt, log = clean(*load_raw())
+        self.assertEqual(log['duplicados_tipo_showid_eliminados'], 9)
+        pd.testing.assert_frame_equal(rebuilt, self.df, check_dtype=False, rtol=1e-10)
     def test_finance_has_paired_population_and_original_denominator(self):
         values=kpis_financieros(self.df)
         self.assertEqual(values['n'],3523)

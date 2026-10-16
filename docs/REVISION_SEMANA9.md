@@ -15,4 +15,4 @@ D3 se integra como una vista complementaria de géneros dentro del dashboard Pyt
 
 ## Gestión de cambios
 
-Las correcciones se desarrollan en la rama `correccion/audiencias-semana9` mediante commits correspondientes a cambios reales. Se conserva el historial original. Estos commits actuales no sustituyen la evidencia histórica de trabajo continuo que pidió la profesora. Para integrar en GitHub, se debe publicar la rama, abrir una pull request y revisar su integración en main.
+Las correcciones se desarrollan en la rama `correccion/audiencias-semana9` mediante commits correspondientes a cambios reales. Se conserva el historial original. Estos commits actuales no sustituyen la evidencia histórica de trabajo continuo que pidió la profesora. La rama se publicó y la pull request #1 se integró en main (5596b6d). La revisión final utiliza la rama correccion/revision-final-entrega.

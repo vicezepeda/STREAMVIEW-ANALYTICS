@@ -1,71 +1,71 @@
 # StreamView Analytics
 
-Proyecto individual de Visualización de Datos ADY1104. Esta revisión separa las dos audiencias de la pauta de semana 9.
+Proyecto individual de Visualización de Datos ADY1104. Entrega revisada el 16 de octubre de 2026.
 
-| Audiencia | Implementación | Archivo para demostrar |
+| Audiencia | Herramienta | Archivo |
 |---|---|---|
-| Directorio y Gerencia General | Python, Streamlit y Plotly | dashboard/dashboard.py |
-| Gerencia de Contenidos y Adquisición | Power BI Desktop | powerbi/StreamView_Contenidos.pbix |
+| Directorio y Gerencia General | Python, Streamlit, Plotly y D3 | dashboard/dashboard.py |
+| Contenidos y Adquisición | Power BI Desktop | powerbi/StreamView_Contenidos.pbix |
 
-D3 es una visualización complementaria de géneros dentro del dashboard Python. Recibe los datos filtrados y permite cambiar la medida y consultar valores al pasar el cursor.
+## Abrir Python en Windows
 
-## Ejecutar Python
+1. Extraer todos los archivos y conservar la estructura de carpetas.
+2. Hacer doble clic en ABRIR_PYTHON.cmd desde esta carpeta.
+3. Mantener abierta la terminal. El navegador abre la dirección local indicada, normalmente http://localhost:8501. Si está ocupada, el acceso selecciona otro puerto libre hasta 8510.
 
-Desde la raíz del proyecto, con Python 3.11 o superior:
+El acceso busca Python 3.11 o superior. También reconoce el runtime de Codex si está instalado en este equipo. Si faltan paquetes, prepara un entorno .venv e instala requirements.txt desde PyPI; ese primer paso necesita Internet. En otro computador se necesita Python instalado. No se incluyen ejecutables de Python ni entornos que dependan de rutas de otro equipo.
+
+Alternativa desde una terminal situada en esta carpeta:
 
 ```bash
 python -m venv .venv
-```
-
-Activar el entorno en Windows con `.venv\Scripts\activate`, o en macOS/Linux con `source .venv/bin/activate`.
-
-```bash
+.venv\Scripts\activate
 python -m pip install -r requirements.txt
-python src/etl.py
 python -m streamlit run dashboard/dashboard.py
 ```
 
-La preparación lee los CSV originales si están disponibles o data/raw/Data_Movies.zip. El catálogo limpio se incluye para facilitar la ejecución.
-
-Python muestra los KPIs ejecutivos, estrenos e incorporaciones por año, países, géneros, distribución de tipos, mapa coroplético e idiomas. Tipo, años y género afectan todas sus vistas. El mapa y D3 utilizan archivos locales.
+En macOS/Linux, activar con `source .venv/bin/activate`. El dashboard utiliza datos ya procesados. D3 y la topología del mapa están incluidos localmente.
 
 ## Abrir Power BI
 
-Abrir powerbi/StreamView_Contenidos.pbix. Las páginas Contenidos y Adquisición, Países y participantes y Finanzas para adquisición pertenecen a la misma audiencia analítica. El PBIX incluye datos y medidas.
+Abrir powerbi/StreamView_Contenidos.pbix. Contiene tres páginas para Contenidos y Adquisición: contenidos, países y participantes, y finanzas. Incluye los datos. Consultar powerbi/LEEME.md para el proyecto editable PBIP y sus límites. Comprobar visualmente sus filtros, interacciones y mapa en Desktop antes de exponer.
 
-El PBIP y las carpetas de modelo e informe permiten revisar cambios de texto en Git. Ver powerbi/LEEME.md. El mapa Azure requiere Internet y disponibilidad en Power BI. Comprobar visuales e interacciones en Desktop antes de exponer.
-
-## Datos comunes
-
-- 32.000 filas originales y 31.991 títulos únicos después de eliminar nueve duplicados dentro del mismo tipo.
-- 16.000 películas y 15.991 series. Clave: tipo más show_id.
-- Cada título se cuenta una vez por categoría de género, país o participante.
-- Finanzas: películas con presupuesto e ingresos >= USD 1.000, sobre la misma muestra pareada.
-- Muestra financiera: 3.523 películas, cobertura inicial 22,02%, ROI agregado aproximado 191,68%.
-- La distribución por año de estreno es casi uniforme. No demuestra crecimiento real del catálogo.
-- Sin datos de usuarios no se calculan retención ni churn. La clasificación etaria no existe en la fuente.
-
-## Verificación
+## Reproducir el análisis
 
 ```bash
+python -m src.etl
+python -m src.analisis
+python -m src.visualizaciones
+python -m src.storytelling
 python -m unittest discover -s tests -v
 ```
 
-Las pruebas cubren claves, finanzas, filtros, categorías, Streamlit y estructura del PBIX. Las evidencias de navegador están en docs/evidencias/. La validación de medidas y JSON no sustituye la revisión visual de Power BI.
+El cuaderno notebooks/01_Analisis_Exploratorio_StreamView.ipynb usa el mismo catálogo limpio. Las figuras estáticas se guardan en visualizaciones/. Jupyter es opcional y no se necesita para ejecutar el dashboard.
+
+## Datos y criterios
+
+Data_Movies.zip contiene los dos CSV originales. El catálogo limpio tiene 31.991 títulos: 16.000 películas y 15.991 series, después de eliminar nueve duplicados por tipo + show_id. Los show_id pueden repetirse entre tipos.
+
+Cada título se cuenta una sola vez dentro de cada país o género. Finanzas utiliza 3.523 películas con presupuesto e ingresos de al menos USD 1.000 en ambos campos: cobertura 22,02% y ROI agregado aproximado 191,68%. La política de USD 1.000 es un criterio de limpieza del proyecto y debe revisarse frente a la fuente original. El ROI no incluye todos los costos ni representa el beneficio de StreamView.
+
+La distribución por año de estreno es casi uniforme. Popularidad y votos no equivalen a reproducciones. No hay información utilizable de usuarios, retención, churn, clasificación etaria o duración.
 
 ## GitHub Flow
 
-La corrección se desarrolla en correccion/audiencias-semana9 mediante commits de cambios reales. El historial original se conserva. No se reconstruyen fechas ni avances pasados. Ver docs/GITHUB_FLOW.md para publicar la rama, abrir una pull request y dirigir los cambios a main.
+La rama correccion/audiencias-semana9 se publicó y la pull request #1 se integró en main (5596b6d):
+https://github.com/vicezepeda/STREAMVIEW-ANALYTICS/pull/1
+
+La integración de la primera corrección en main está verificada. La revisión final de esta entrega se desarrolla en correccion/revision-final-entrega. Se conserva el historial original y las fechas reales de esta corrección. Ver docs/GITHUB_FLOW.md. El paquete de entrega contiene un bundle con el historial Git.
 
 ## Organización
 
-```text
-data/        Datos originales y catálogo común
-src/         Preparación, métricas y filtros
-dashboard/   Dashboard ejecutivo Python y componente D3
-powerbi/     Dashboard analítico PBIX, proyecto PBIP y medidas
-tests/       Comprobaciones de datos y entregables
-docs/        Arquitectura, requisitos y evidencias
-```
+- data/: fuentes y catálogo común.
+- src/: preparación, filtros, métricas y análisis.
+- dashboard/: interfaz Python, D3 y mapa local.
+- powerbi/: PBIX, PBIP y medidas DAX.
+- notebooks/: análisis exploratorio consistente con los dashboards.
+- visualizaciones/: gráficos estáticos exportados.
+- tests/: pruebas automáticas.
+- docs/: arquitectura, requisitos y documentación.
 
-Los documentos anteriores que permanecen en docs son antecedentes. La entrega corregida se identifica por el sufijo Semana9.
+El paquete final separa informe y presentación en carpetas numeradas. Las versiones anteriores del repositorio son antecedentes y no se incluyen como documentos finales en el paquete de entrega.

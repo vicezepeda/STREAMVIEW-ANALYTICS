@@ -15,7 +15,7 @@
 | Filtros analíticos | Tipo, rango de años, género, país, idioma y calificación | Configurados en PBIX; prueba manual pendiente |
 | Clasificación etaria | No existe una variable utilizable | Limitación visible y documentada; no se inventan datos |
 | D3 integrado | Python, Exploración D3 | Cambio de medida y barras probados en navegador |
-| GitHub Flow | Rama correccion/audiencias-semana9 con commits de corrección | Desarrollo local real; publicación y PR pendientes |
+| GitHub Flow | Rama correccion/audiencias-semana9 con commits de corrección | PR #1 integrada en main (5596b6d); revisión final en rama separada |
 | Arquitectura y presentación | docs/ARQUITECTURA.md y archivos Semana9 | Documenta audiencias, fuentes y herramientas |
 
 No se afirma que los commits actuales acrediten avances históricos. No se afirma una integración de clics entre Python y Power BI. Son dos productos que comparten catálogo y definiciones.

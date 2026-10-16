@@ -1,40 +1,29 @@
 # Gestión con GitHub Flow
 
-## Historial original
+## Historial y primera corrección
 
-Al revisar b889ae3 se encontraron 38 commits alcanzables desde main, una rama remota disponible y ningún commit de merge. Esa evidencia no permite acreditar por sí sola el trabajo continuo en ramas solicitado por la profesora. Las ramas anteriores pudieron eliminarse o integrarse de otra forma; no se afirma que nunca existieran.
+La revisión original partió de b889ae3. Sus 38 commits alcanzables desde main no permitían acreditar por sí solos el trabajo continuo en ramas. No se afirma que nunca existieran otras ramas ni se reconstruye un historial anterior.
 
-## Corrección actual
+La corrección se desarrolló en correccion/audiencias-semana9 con cuatro commits reales: datos y KPIs, Python y D3, Power BI y documentación. Se publicó la rama y se abrió la pull request #1. GitHub confirma su integración en main mediante 5596b6d:
 
-1. Partir de main y crear correccion/audiencias-semana9.
-2. Corregir preparación y métricas. Probar y registrar el cambio.
-3. Implementar y comprobar Python ejecutivo y D3. Registrar el cambio.
-4. Incorporar el PBIX analítico y su proyecto editable. Registrar el cambio.
-5. Actualizar documentación, informe y presentación. Registrar el cambio.
-6. Publicar la rama, abrir una pull request hacia main, revisar e integrar.
+https://github.com/vicezepeda/STREAMVIEW-ANALYTICS/pull/1
 
-Los pasos de desarrollo local se realizan en esta revisión. La publicación y la integración remotas deben verificarse en GitHub. Describir el flujo o subir todos los archivos directamente a main no acredita su uso.
+## Revisión final de la entrega
 
-## Publicar desde el clon local
+La rama correccion/revision-final-entrega parte del main integrado. Corrige el cuaderno, los accesos Python y la documentación, actualiza las dependencias comprobadas y conserva evidencias de las pruebas. La publicación y revisión de esta rama se realizan sin forzar push ni reescribir commits anteriores.
 
-```bash
-git status
-git log --oneline --decorate main..correccion/audiencias-semana9
-git push -u origin correccion/audiencias-semana9
-```
+Flujo utilizado: crear rama desde main, realizar cambios reales, probar, registrar commits, publicar, abrir una pull request, revisar e integrar. Cada commit conserva su fecha real. Los commits actuales no sustituyen avances que debieron registrarse durante el semestre.
 
-En GitHub, crear una pull request con base main y comparación correccion/audiencias-semana9. Revisar cambios y pruebas, resolver observaciones e integrar conservando evidencia de la rama. No forzar el push ni reescribir el historial original.
+## Recuperar el historial incluido
 
-## Recuperar el historial del bundle
-
-El ZIP contiene archivos, y StreamView_Historial.bundle conserva referencias y commits locales.
+El ZIP de entrega conserva los archivos y StreamView_Historial.bundle conserva commits y ramas. Desde una terminal situada junto al bundle:
 
 ```bash
 git clone StreamView_Historial.bundle STREAMVIEW-ANALYTICS
 cd STREAMVIEW-ANALYTICS
 git remote set-url origin https://github.com/vicezepeda/STREAMVIEW-ANALYTICS.git
-git switch correccion/audiencias-semana9
-git push -u origin correccion/audiencias-semana9
+git switch correccion/revision-final-entrega
+git log --oneline --decorate -8
 ```
 
-Después abrir y revisar la pull request. Los commits de esta corrección tienen su fecha real. No sustituyen el historial de avances que debió generarse durante las semanas anteriores.
+El bundle no incluye credenciales ni publica automáticamente. Antes de integrar, revisar los cambios y las observaciones de Power BI indicadas en VALIDACION.md.

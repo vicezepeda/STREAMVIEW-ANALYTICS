@@ -1,4 +1,4 @@
-"""Genera las figuras estáticas del informe y la presentación en images/."""
+"""Genera siete figuras estáticas del catálogo común en visualizaciones/."""
 from pathlib import Path
 
 import matplotlib
@@ -7,9 +7,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import metrics as M
-from prep import explode, load_clean
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src import metrics as M
+from src.prep import explode, load_clean
 
 OUT = Path(__file__).resolve().parents[1] / "visualizaciones"
 C_PEL, C_SER, GRIS = "#1f4e79", "#f28e2b", "#8c8c8c"
@@ -80,16 +80,17 @@ def f4_idiomas(df):
 
 
 def f5_popularidad_calificacion(df):
-    d = df[df.votos_suficientes].sample(n=6000, random_state=42)
+    eligible = df[df.votos_suficientes & (df.popularidad > 0)]
+    d = eligible.sample(n=min(6000, len(eligible)), random_state=42)
     fig, ax = plt.subplots(figsize=(8, 4.5))
     for tipo, col in [("Película", C_PEL), ("Serie", C_SER)]:
         s = d[d.tipo == tipo]
         ax.scatter(s.popularidad, s.calificacion, s=np.clip(s.votos / 200, 4, 120),
                    alpha=0.35, color=col, label=tipo + "s", edgecolor="none")
     ax.set_xscale("log")
-    ax.set_xlabel("Popularidad (escala log; índice relativo, no comparable entre tipos)")
+    ax.set_xlabel("Popularidad (escala log; índice de la fuente)")
     ax.set_ylabel("Calificación promedio (0–10)")
-    ax.set_title("Popularidad vs. calificación (títulos con votos suficientes, muestra n=6.000)",
+    ax.set_title(f"Popularidad vs. calificación (muestra n={len(d):,})",
                  loc="left", weight="bold")
     ax.legend(frameon=False, markerscale=2, loc="lower right")
     _save(fig, "f5_popularidad_calificacion.png")
@@ -116,13 +117,12 @@ def f7_paises_calificacion(df):
     p = M.paises_calificacion(df, min_titulos=30).head(10).iloc[::-1]
     fig, ax = plt.subplots(figsize=(7.5, 4.0))
     ax.barh(p.country, p.calificacion_prom, color=C_PEL)
-    lo = p.calificacion_prom.min()
-    ax.set_xlim(lo - 0.3, p.calificacion_prom.max() + 0.2)
+    ax.set_xlim(0, 10)
     for i, v in enumerate(p.calificacion_prom):
         ax.text(v + 0.01, i, f"{v:.2f} (n={int(p.titulos.iloc[i])})", va="center", fontsize=8)
     ax.set_title("Calificación promedio por país (≥30 títulos con votos suficientes)",
                  loc="left", weight="bold")
-    ax.set_xlabel("Calificación promedio (eje no inicia en 0)")
+    ax.set_xlabel("Calificación promedio (0 a 10)")
     _save(fig, "f7_paises_calificacion.png")
 
 
