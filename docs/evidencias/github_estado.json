@@ -1,0 +1,18 @@
+[
+  {
+    "number": 1,
+    "html_url": "https://github.com/vicezepeda/STREAMVIEW-ANALYTICS/pull/1",
+    "state": "closed",
+    "merged": true,
+    "merged_at": "2026-10-16T03:06:08Z",
+    "merge_commit_sha": "5596b6d388c147bcf5a2a0bd8aa69e2c25726dfb"
+  },
+  {
+    "number": 2,
+    "html_url": "https://github.com/vicezepeda/STREAMVIEW-ANALYTICS/pull/2",
+    "state": "closed",
+    "merged": true,
+    "merged_at": "2026-10-16T22:19:06Z",
+    "merge_commit_sha": "75d259a13248bd791e63e32f96203bbc7ece20e5"
+  }
+]

@@ -129,7 +129,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Solo se incluyen películas con presupuesto e ingresos informados (mínimo USD 1.000 en ambos). ROI = (ingresos - presupuesto) / presupuesto.",
+                    "value": "Solo películas con presupuesto e ingresos >= USD 1.000 en ambos. MUSD = millones de USD. ROI = (ingresos - presupuesto) / presupuesto.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "11pt",

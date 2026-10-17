@@ -133,10 +133,10 @@
                       "Entity": "Catalogo"
                     }
                   },
-                  "Property": "Titulos"
+                  "Property": "Total contenidos"
                 }
               },
-              "queryRef": "Catalogo.Titulos",
+              "queryRef": "Catalogo.Total contenidos",
               "nativeQueryRef": "Titulos"
             }
           ]

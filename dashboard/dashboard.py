@@ -51,9 +51,12 @@ k = M.kpis_catalogo(df)
 columns = st.columns(6)
 for c,label,value in zip(columns,['Contenidos','Películas','Series','Países','Idiomas','Géneros'],[k['total'],k['peliculas'],k['series'],k['paises'],k['idiomas'],k['generos']]): c.metric(label,f'{value:,}')
 a,b,c = st.columns(3)
-a.metric('Popularidad promedio',f'{df.popularidad.mean():.2f}')
-b.metric('Calificación promedio',f'{df.calificacion.mean():.2f} / 10')
+a.metric('Popularidad mediana',f"{k['popularidad_mediana']:.2f}")
+b.metric('Calificación con votos',f"{k['calificacion_media']:.2f} / 10" if k['calificacion_n'] else 'Sin valoraciones')
 c.metric('Votaciones promedio',f'{df.votos.mean():.1f}')
+st.caption(f"Calificación: promedio simple de {k['calificacion_n']:,} títulos con votos > 0 y nota > 0. "
+           f"Se excluyen {k['calificacion_excluidos']:,} títulos sin valoración utilizable. "
+           f"Popularidad: mediana {k['popularidad_mediana']:.2f}, media {k['popularidad_media']:.2f} (índice de la fuente).")
 view,territory,d3tab = st.tabs(['Vista general','Países e idiomas','Exploración D3'])
 with view:
     a,b = st.columns(2)
@@ -82,10 +85,12 @@ with territory:
     st.plotly_chart(px.bar(l,x='idioma',y='titulos',color='tipo',barmode='group',color_discrete_map=PAL,title='Idiomas principales',labels={'idioma':'Código de idioma','titulos':'Títulos','tipo':'Tipo'}),width='stretch')
     st.dataframe(p[['country','titulos']],hide_index=True,width='stretch')
 with d3tab:
-    g=explode(df,'genres').groupby('genres').agg(titulos=('show_id','size'),calificacion=('calificacion','mean')).reset_index().rename(columns={'genres':'genero'})
+    g=explode(df,'genres').groupby('genres').size().reset_index(name='titulos').rename(columns={'genres':'genero'})
+    rating_by_genre=explode(M.rated_catalog(df),'genres').groupby('genres').calificacion.mean()
+    g['calificacion']=g.genero.map(rating_by_genre)
     library=(ROOT/'dashboard/d3/vendor/d3.v7.min.js').read_text(encoding='utf-8')
     template=(ROOT/'dashboard/d3/generos.html').read_text(encoding='utf-8-sig')
-    payload=json.dumps(g.to_dict('records'),ensure_ascii=False).replace('<','\\u003c')
+    payload=g.to_json(orient='records',force_ascii=False).replace('<','\\u003c')
     st.iframe(template.replace('__D3_LIBRARY__',library).replace('__DATA__',payload),
               height=530, alt='Comparación de géneros con D3')
 st.download_button('Descargar catálogo filtrado',df.to_csv(index=False).encode('utf-8'),'catalogo_filtrado.csv','text/csv')

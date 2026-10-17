@@ -25,7 +25,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Presupuesto e ingresos por año'"
+                  "Value": "'Presupuesto e ingresos por año (MUSD)'"
                 }
               }
             },
@@ -152,11 +152,11 @@
                       "Entity": "Catalogo"
                     }
                   },
-                  "Property": "Presupuesto total"
+                  "Property": "Presupuesto millones"
                 }
               },
-              "queryRef": "Catalogo.Presupuesto total",
-              "nativeQueryRef": "Presupuesto total"
+              "queryRef": "Catalogo.Presupuesto millones",
+              "nativeQueryRef": "Presupuesto millones"
             },
             {
               "field": {
@@ -166,11 +166,11 @@
                       "Entity": "Catalogo"
                     }
                   },
-                  "Property": "Ingresos totales"
+                  "Property": "Ingresos millones"
                 }
               },
-              "queryRef": "Catalogo.Ingresos totales",
-              "nativeQueryRef": "Ingresos totales"
+              "queryRef": "Catalogo.Ingresos millones",
+              "nativeQueryRef": "Ingresos millones"
             }
           ]
         }
@@ -185,7 +185,7 @@
                     "Entity": "Catalogo"
                   }
                 },
-                "Property": "Presupuesto total"
+                "Property": "Presupuesto millones"
               }
             },
             "direction": "Descending"

@@ -101,6 +101,22 @@
             "sourceColumn": "ROI",
             "summarizeBy": "none",
             "formatString": "0.00"
+          },
+          {
+            "name": "Presupuesto MUSD",
+            "type": "calculated",
+            "dataType": "double",
+            "expression": "DIVIDE(Catalogo[Presupuesto],1000000)",
+            "formatString": "#,0.0",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Ingresos MUSD",
+            "type": "calculated",
+            "dataType": "double",
+            "expression": "DIVIDE(Catalogo[Ingresos],1000000)",
+            "formatString": "#,0.0",
+            "summarizeBy": "none"
           }
         ],
         "partitions": [
@@ -170,9 +186,10 @@
           },
           {
             "name": "Calificacion media",
-            "expression": "AVERAGE(Catalogo[Calificacion])",
+            "expression": "CALCULATE(AVERAGE(Catalogo[Calificacion]), KEEPFILTERS(Catalogo[Votos]>0), KEEPFILTERS(Catalogo[Calificacion]>0), KEEPFILTERS(Catalogo[Calificacion]<=10))",
             "formatString": "0.00",
-            "displayFolder": "Catalogo"
+            "displayFolder": "Catalogo",
+            "description": "Promedio simple de títulos con votos > 0 y calificación > 0 y <= 10. Ceros sin valoración excluidos."
           },
           {
             "name": "Votaciones promedio",
@@ -213,25 +230,25 @@
           {
             "name": "Presupuesto total",
             "expression": "CALCULATE(SUM(Catalogo[Presupuesto]), KEEPFILTERS(Catalogo[Finanzas]=\"Sí\"))",
-            "formatString": "\"USD \"#,0,,.0\" M\"",
+            "formatString": "#,0.00",
             "displayFolder": "Finanzas"
           },
           {
             "name": "Ingresos totales",
             "expression": "CALCULATE(SUM(Catalogo[Ingresos]), KEEPFILTERS(Catalogo[Finanzas]=\"Sí\"))",
-            "formatString": "\"USD \"#,0,,.0\" M\"",
+            "formatString": "#,0.00",
             "displayFolder": "Finanzas"
           },
           {
             "name": "Presupuesto promedio",
             "expression": "CALCULATE(AVERAGE(Catalogo[Presupuesto]), KEEPFILTERS(Catalogo[Finanzas]=\"Sí\"))",
-            "formatString": "\"USD \"#,0,,.0\" M\"",
+            "formatString": "#,0.00",
             "displayFolder": "Finanzas"
           },
           {
             "name": "Ingresos promedio",
             "expression": "CALCULATE(AVERAGE(Catalogo[Ingresos]), KEEPFILTERS(Catalogo[Finanzas]=\"Sí\"))",
-            "formatString": "\"USD \"#,0,,.0\" M\"",
+            "formatString": "#,0.00",
             "displayFolder": "Finanzas"
           },
           {
@@ -243,13 +260,13 @@
           {
             "name": "Cobertura financiera",
             "expression": "DIVIDE([Muestra financiera],[Peliculas])",
-            "formatString": "0.0%",
+            "formatString": "0.00%",
             "displayFolder": "Finanzas"
           },
           {
             "name": "ROI agregado",
             "expression": "DIVIDE([Ingresos totales]-[Presupuesto total],[Presupuesto total])",
-            "formatString": "0.0%",
+            "formatString": "0.00%",
             "displayFolder": "Finanzas"
           },
           {
@@ -303,7 +320,7 @@
           {
             "name": "Top ingresos",
             "expression": "VAR V = [Ingresos totales] VAR R = RANKX(ALLSELECTED(Catalogo[Titulo]), [Ingresos totales], , DESC, Skip) RETURN IF(NOT ISBLANK(V) && R<=10,V)",
-            "formatString": "\"USD \"#,0,,.0\" M\"",
+            "formatString": "#,0.00",
             "displayFolder": "Visualizaciones"
           },
           {
@@ -317,6 +334,55 @@
             "expression": "VAR V = [ROI bajo presupuesto] VAR R = RANKX(ALLSELECTED(Catalogo[Titulo]), [ROI bajo presupuesto], , DESC, Skip) RETURN IF(NOT ISBLANK(V) && R<=10,V)",
             "formatString": "0.0%",
             "displayFolder": "Visualizaciones"
+          },
+          {
+            "name": "Calificaciones validas",
+            "expression": "CALCULATE([Titulos], KEEPFILTERS(Catalogo[Votos]>0), KEEPFILTERS(Catalogo[Calificacion]>0), KEEPFILTERS(Catalogo[Calificacion]<=10))",
+            "formatString": "#,0",
+            "displayFolder": "Catalogo"
+          },
+          {
+            "name": "Total contenidos",
+            "expression": "FORMAT([Titulos],\"#,0\",\"es-CL\")",
+            "displayFolder": "Presentacion"
+          },
+          {
+            "name": "Peliculas con finanzas",
+            "expression": "FORMAT([Muestra financiera],\"#,0\",\"es-CL\")",
+            "displayFolder": "Presentacion"
+          },
+          {
+            "name": "Presupuesto promedio MUSD",
+            "expression": "FORMAT(DIVIDE([Presupuesto promedio],1000000),\"#,0.00\",\"es-CL\")",
+            "displayFolder": "Presentacion"
+          },
+          {
+            "name": "Presupuesto total MUSD",
+            "expression": "FORMAT(DIVIDE([Presupuesto total],1000000),\"#,0.0\",\"es-CL\")",
+            "displayFolder": "Presentacion"
+          },
+          {
+            "name": "Ingresos totales MUSD",
+            "expression": "FORMAT(DIVIDE([Ingresos totales],1000000),\"#,0.0\",\"es-CL\")",
+            "displayFolder": "Presentacion"
+          },
+          {
+            "name": "Presupuesto millones",
+            "expression": "DIVIDE([Presupuesto total],1000000)",
+            "displayFolder": "Presentacion",
+            "formatString": "#,0.0"
+          },
+          {
+            "name": "Ingresos millones",
+            "expression": "DIVIDE([Ingresos totales],1000000)",
+            "displayFolder": "Presentacion",
+            "formatString": "#,0.0"
+          },
+          {
+            "name": "Top ingresos millones",
+            "expression": "DIVIDE([Top ingresos],1000000)",
+            "displayFolder": "Presentacion",
+            "formatString": "#,0.0"
           }
         ]
       },

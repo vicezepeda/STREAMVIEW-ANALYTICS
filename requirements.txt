@@ -4,3 +4,4 @@ matplotlib==3.11.2
 plotly==7.1.0
 streamlit==1.66.0
 pycountry==26.2.16
+seaborn==0.13.2

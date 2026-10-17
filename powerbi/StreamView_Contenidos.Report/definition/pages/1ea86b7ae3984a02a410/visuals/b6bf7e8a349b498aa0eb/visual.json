@@ -25,7 +25,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Presupuesto vs ingresos (USD)'"
+                  "Value": "'Presupuesto vs ingresos (MUSD)'"
                 }
               }
             },
@@ -154,13 +154,13 @@
                           "Entity": "Catalogo"
                         }
                       },
-                      "Property": "Presupuesto"
+                      "Property": "Presupuesto MUSD"
                     }
                   },
                   "Function": 1
                 }
               },
-              "queryRef": "1(Catalogo.Presupuesto)",
+              "queryRef": "1(Catalogo.Presupuesto MUSD)",
               "nativeQueryRef": "Presupuesto"
             }
           ]
@@ -177,13 +177,13 @@
                           "Entity": "Catalogo"
                         }
                       },
-                      "Property": "Ingresos"
+                      "Property": "Ingresos MUSD"
                     }
                   },
                   "Function": 1
                 }
               },
-              "queryRef": "1(Catalogo.Ingresos)",
+              "queryRef": "1(Catalogo.Ingresos MUSD)",
               "nativeQueryRef": "Ingresos"
             }
           ]

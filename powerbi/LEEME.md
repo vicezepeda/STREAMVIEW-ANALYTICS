@@ -16,4 +16,6 @@ El PBIX incorpora la misma instantánea de 31.991 títulos que data/processed/ca
 
 El PBIP permite editar el informe y el modelo como texto. Sus consultas M incluyen esta instantánea. Al abrir el PBIP por primera vez, actualizar las consultas para cargar datos. Actualizar no obtiene registros futuros: para eso hay que cambiar el origen y guardar nuevamente el PBIX.
 
-El mapa Azure requiere Internet y disponibilidad en Power BI. Verificar mapas e interacciones manualmente antes de exponer. La validación JSON y de medidas no sustituye esa prueba visual.
+El mapa Azure requiere Internet y disponibilidad en Power BI. El mapa, las tres páginas, la selección de Drama y el filtro de tipo fueron comprobados en Desktop. Las capturas están en docs/evidencias/. Ensayar la demostración en el equipo de presentación porque Azure Maps depende del servicio.
+
+Calificación con votos: 6,63 (27.414 valoraciones válidas). Popularidad mediana: 22,07. Las barras por género usan popularidad promedio. Las tarjetas y gráficos financieros muestran MUSD (millones de USD). El presupuesto promedio es 35,75 MUSD. Los conteos de tarjetas se muestran completos.

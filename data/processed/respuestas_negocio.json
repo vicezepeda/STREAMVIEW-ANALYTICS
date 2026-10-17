@@ -1,0 +1,430 @@
+{
+  "generos_con_evidencia": [
+    {
+      "genres": "Action & Adventure",
+      "titulos": 940,
+      "calificacion": 7.537309574468085
+    },
+    {
+      "genres": "Sci-Fi & Fantasy",
+      "titulos": 1044,
+      "calificacion": 7.536737547892721
+    },
+    {
+      "genres": "Kids",
+      "titulos": 152,
+      "calificacion": 7.511644736842105
+    },
+    {
+      "genres": "Soap",
+      "titulos": 129,
+      "calificacion": 7.449410852713179
+    },
+    {
+      "genres": "Animation",
+      "titulos": 2248,
+      "calificacion": 7.293537366548042
+    },
+    {
+      "genres": "Documentary",
+      "titulos": 671,
+      "calificacion": 7.257038748137108
+    },
+    {
+      "genres": "Music",
+      "titulos": 380,
+      "calificacion": 7.003368421052632
+    },
+    {
+      "genres": "Reality",
+      "titulos": 135,
+      "calificacion": 6.944244444444444
+    },
+    {
+      "genres": "Drama",
+      "titulos": 7742,
+      "calificacion": 6.861526478946009
+    },
+    {
+      "genres": "Family",
+      "titulos": 1480,
+      "calificacion": 6.860270270270271
+    },
+    {
+      "genres": "History",
+      "titulos": 619,
+      "calificacion": 6.817252019386107
+    },
+    {
+      "genres": "War",
+      "titulos": 341,
+      "calificacion": 6.716442815249266
+    },
+    {
+      "genres": "Crime",
+      "titulos": 2168,
+      "calificacion": 6.706002306273063
+    },
+    {
+      "genres": "Mystery",
+      "titulos": 1614,
+      "calificacion": 6.69729491945477
+    },
+    {
+      "genres": "Comedy",
+      "titulos": 5269,
+      "calificacion": 6.644386600873031
+    },
+    {
+      "genres": "Fantasy",
+      "titulos": 1172,
+      "calificacion": 6.578709044368601
+    },
+    {
+      "genres": "Adventure",
+      "titulos": 1484,
+      "calificacion": 6.533403638814016
+    },
+    {
+      "genres": "Romance",
+      "titulos": 1745,
+      "calificacion": 6.52144240687679
+    },
+    {
+      "genres": "Western",
+      "titulos": 130,
+      "calificacion": 6.505392307692308
+    },
+    {
+      "genres": "TV Movie",
+      "titulos": 472,
+      "calificacion": 6.335966101694916
+    },
+    {
+      "genres": "Action",
+      "titulos": 2667,
+      "calificacion": 6.296835770528684
+    },
+    {
+      "genres": "Science Fiction",
+      "titulos": 1204,
+      "calificacion": 6.180359634551495
+    },
+    {
+      "genres": "Thriller",
+      "titulos": 3131,
+      "calificacion": 6.105330884701374
+    },
+    {
+      "genres": "Horror",
+      "titulos": 1928,
+      "calificacion": 5.7914279045643156
+    }
+  ],
+  "paises_con_evidencia": [
+    {
+      "country": "South Korea",
+      "titulos": 731,
+      "calificacion_prom": 7.416726402188783,
+      "popularidad_mediana": 25.938
+    },
+    {
+      "country": "Japan",
+      "titulos": 1370,
+      "calificacion_prom": 7.374401459854015,
+      "popularidad_mediana": 26.200000000000003
+    },
+    {
+      "country": "Colombia",
+      "titulos": 81,
+      "calificacion_prom": 7.305580246913579,
+      "popularidad_mediana": 40.828
+    },
+    {
+      "country": "Mexico",
+      "titulos": 373,
+      "calificacion_prom": 7.141865951742628,
+      "popularidad_mediana": 20.682
+    },
+    {
+      "country": "Turkey",
+      "titulos": 135,
+      "calificacion_prom": 7.1075333333333335,
+      "popularidad_mediana": 22.215
+    },
+    {
+      "country": "Taiwan",
+      "titulos": 55,
+      "calificacion_prom": 7.0100181818181815,
+      "popularidad_mediana": 16.68
+    },
+    {
+      "country": "Brazil",
+      "titulos": 180,
+      "calificacion_prom": 6.920644444444444,
+      "popularidad_mediana": 11.0055
+    },
+    {
+      "country": "Argentina",
+      "titulos": 112,
+      "calificacion_prom": 6.8897232142857145,
+      "popularidad_mediana": 10.8475
+    },
+    {
+      "country": "China",
+      "titulos": 449,
+      "calificacion_prom": 6.812118040089087,
+      "popularidad_mediana": 15.97
+    },
+    {
+      "country": "Denmark",
+      "titulos": 175,
+      "calificacion_prom": 6.757874285714285,
+      "popularidad_mediana": 11.555
+    },
+    {
+      "country": "Czech Republic",
+      "titulos": 45,
+      "calificacion_prom": 6.728222222222222,
+      "popularidad_mediana": 13.392
+    },
+    {
+      "country": "Israel",
+      "titulos": 35,
+      "calificacion_prom": 6.6891428571428575,
+      "popularidad_mediana": 10.292
+    },
+    {
+      "country": "India",
+      "titulos": 401,
+      "calificacion_prom": 6.677745635910224,
+      "popularidad_mediana": 9.682
+    },
+    {
+      "country": "Chile",
+      "titulos": 54,
+      "calificacion_prom": 6.666296296296297,
+      "popularidad_mediana": 10.8665
+    },
+    {
+      "country": "Thailand",
+      "titulos": 74,
+      "calificacion_prom": 6.664932432432432,
+      "popularidad_mediana": 15.682500000000001
+    },
+    {
+      "country": "Russia",
+      "titulos": 181,
+      "calificacion_prom": 6.66160773480663,
+      "popularidad_mediana": 12.855
+    },
+    {
+      "country": "Sweden",
+      "titulos": 203,
+      "calificacion_prom": 6.660650246305419,
+      "popularidad_mediana": 11.938
+    },
+    {
+      "country": "Norway",
+      "titulos": 126,
+      "calificacion_prom": 6.626984126984127,
+      "popularidad_mediana": 12.9245
+    },
+    {
+      "country": "Luxembourg",
+      "titulos": 62,
+      "calificacion_prom": 6.607322580645161,
+      "popularidad_mediana": 11.6065
+    },
+    {
+      "country": "United Kingdom",
+      "titulos": 1928,
+      "calificacion_prom": 6.595148858921162,
+      "popularidad_mediana": 14.788
+    },
+    {
+      "country": "Greece",
+      "titulos": 34,
+      "calificacion_prom": 6.590058823529412,
+      "popularidad_mediana": 14.254
+    },
+    {
+      "country": "Spain",
+      "titulos": 560,
+      "calificacion_prom": 6.564357142857143,
+      "popularidad_mediana": 11.866
+    },
+    {
+      "country": "Germany",
+      "titulos": 675,
+      "calificacion_prom": 6.562410370370371,
+      "popularidad_mediana": 11.332
+    },
+    {
+      "country": "Hong Kong",
+      "titulos": 207,
+      "calificacion_prom": 6.558758454106281,
+      "popularidad_mediana": 12.582
+    },
+    {
+      "country": "Ireland",
+      "titulos": 179,
+      "calificacion_prom": 6.538698324022346,
+      "popularidad_mediana": 12.438
+    },
+    {
+      "country": "Austria",
+      "titulos": 65,
+      "calificacion_prom": 6.538215384615384,
+      "popularidad_mediana": 9.834
+    },
+    {
+      "country": "New Zealand",
+      "titulos": 61,
+      "calificacion_prom": 6.526065573770492,
+      "popularidad_mediana": 15.714
+    },
+    {
+      "country": "United States of America",
+      "titulos": 8600,
+      "calificacion_prom": 6.523078488372093,
+      "popularidad_mediana": 16.914
+    },
+    {
+      "country": "Iceland",
+      "titulos": 44,
+      "calificacion_prom": 6.520909090909091,
+      "popularidad_mediana": 11.481
+    },
+    {
+      "country": "United Arab Emirates",
+      "titulos": 32,
+      "calificacion_prom": 6.50584375,
+      "popularidad_mediana": 18.756
+    },
+    {
+      "country": "Indonesia",
+      "titulos": 35,
+      "calificacion_prom": 6.502085714285714,
+      "popularidad_mediana": 12.119
+    },
+    {
+      "country": "Switzerland",
+      "titulos": 97,
+      "calificacion_prom": 6.496628865979382,
+      "popularidad_mediana": 11.622
+    },
+    {
+      "country": "Poland",
+      "titulos": 130,
+      "calificacion_prom": 6.496076923076923,
+      "popularidad_mediana": 11.0595
+    },
+    {
+      "country": "Netherlands",
+      "titulos": 120,
+      "calificacion_prom": 6.490525000000001,
+      "popularidad_mediana": 10.239999999999998
+    },
+    {
+      "country": "Finland",
+      "titulos": 62,
+      "calificacion_prom": 6.481580645161291,
+      "popularidad_mediana": 11.3985
+    },
+    {
+      "country": "Australia",
+      "titulos": 309,
+      "calificacion_prom": 6.475880258899677,
+      "popularidad_mediana": 15.07
+    },
+    {
+      "country": "Romania",
+      "titulos": 37,
+      "calificacion_prom": 6.475027027027027,
+      "popularidad_mediana": 11.088
+    },
+    {
+      "country": "Hungary",
+      "titulos": 49,
+      "calificacion_prom": 6.469061224489796,
+      "popularidad_mediana": 13.627
+    },
+    {
+      "country": "Belgium",
+      "titulos": 489,
+      "calificacion_prom": 6.46016564417178,
+      "popularidad_mediana": 10.784
+    },
+    {
+      "country": "France",
+      "titulos": 1661,
+      "calificacion_prom": 6.44858880192655,
+      "popularidad_mediana": 10.38
+    },
+    {
+      "country": "Italy",
+      "titulos": 465,
+      "calificacion_prom": 6.378309677419355,
+      "popularidad_mediana": 9.24
+    },
+    {
+      "country": "Canada",
+      "titulos": 1093,
+      "calificacion_prom": 6.363762122598353,
+      "popularidad_mediana": 13.221
+    },
+    {
+      "country": "South Africa",
+      "titulos": 73,
+      "calificacion_prom": 6.271547945205479,
+      "popularidad_mediana": 13.706
+    },
+    {
+      "country": "Bulgaria",
+      "titulos": 52,
+      "calificacion_prom": 6.009057692307692,
+      "popularidad_mediana": 17.073
+    }
+  ],
+  "bajo_presupuesto_ejemplos": [
+    {
+      "titulo": "Insidious",
+      "presupuesto": 1500000.0,
+      "ingresos": 100106454.0,
+      "roi_pct": 6573.763599999999
+    },
+    {
+      "titulo": "Whiplash",
+      "presupuesto": 3300000.0,
+      "ingresos": 50307484.0,
+      "roi_pct": 1424.4692121212122
+    },
+    {
+      "titulo": "Moonlight",
+      "presupuesto": 4000000.0,
+      "ingresos": 65046687.0,
+      "roi_pct": 1526.167175
+    },
+    {
+      "titulo": "Get Out",
+      "presupuesto": 4500000.0,
+      "ingresos": 255407969.0,
+      "roi_pct": 5575.732644444444
+    }
+  ],
+  "correlacion_por_tipo": [
+    {
+      "tipo": "Película",
+      "n": 12185,
+      "pearson": 0.09217191098990042,
+      "spearman": 0.24220245103634855
+    },
+    {
+      "tipo": "Serie",
+      "n": 4005,
+      "pearson": 0.009827469158430788,
+      "spearman": 0.23536635864665487
+    }
+  ]
+}

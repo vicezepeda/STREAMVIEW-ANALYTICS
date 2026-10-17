@@ -1,21 +1,16 @@
-# Evidencia de los requisitos de semana 9
+# Matriz de requisitos y evidencias
 
-| Requisito | Producto y ubicación | Estado de comprobación |
+| Indicador o requisito | Evidencia | Alcance |
 |---|---|---|
-| Dos audiencias y herramientas distintas | Python para Dirección; PBIX para Contenidos y Adquisición | Asignación explícita en README y ambos productos |
-| KPIs ejecutivos | Python: contenidos, películas, series, países, idiomas, géneros, popularidad y calificación | Probados con AppTest y navegador |
-| Estrenos e incorporaciones | Python, Vista general | Renderizados en navegador |
-| Top países, géneros y tipos | Python, Vista general | Cálculo con títulos únicos |
-| Mapa coroplético | Python, Países e idiomas | Renderizado en navegador con topología local |
-| Filtros ejecutivos | Tipo, rango de años y género | AppTest: películas, Drama, vacío y reinicio |
-| Dispersión y barras por género | PBIX, Contenidos y Adquisición | Definiciones JSON y medidas; revisar visualmente en Desktop |
-| Treemap y ranking con umbral | PBIX, Contenidos y Adquisición | Medidas y filtro de al menos 1.000 votos |
-| Directores, actores y mapa por país | PBIX, Países y participantes | Países con al menos 30 títulos con votos suficientes; revisión visual pendiente |
-| Finanzas y nota de alcance | PBIX, Finanzas para adquisición | Presupuesto e ingresos pareados; 3.523 películas y ROI 191,68% |
-| Filtros analíticos | Tipo, rango de años, género, país, idioma y calificación | Configurados en PBIX; prueba manual pendiente |
-| Clasificación etaria | No existe una variable utilizable | Limitación visible y documentada; no se inventan datos |
-| D3 integrado | Python, Exploración D3 | Cambio de medida y barras probados en navegador |
-| GitHub Flow | Rama correccion/audiencias-semana9 con commits de corrección | PR #1 integrada en main (5596b6d); revisión final en rama separada |
-| Arquitectura y presentación | docs/ARQUITECTURA.md y archivos Semana9 | Documenta audiencias, fuentes y herramientas |
+| IE13, visualizaciones estáticas | visualizaciones/f1 a f8 y capturas reales del PBIX en el informe | Matplotlib y Seaborn, con interpretación |
+| IE14, interacción | pbi_final_contenidos, pbi_final_drama y pbi_final_peliculas | Selección cruzada y filtro de tipo, más Python y D3 |
+| IE16, integración | dos CSV, catálogo común y coincidencia_python_powerbi.csv | 11 indicadores coinciden. Las aplicaciones filtran por separado |
+| IE17, dashboards | Python para Dirección, tres páginas de Power BI para Contenidos | Audiencias y objetivos documentados |
+| IE18, KPIs | Nota 6,63, mediana 22,07, ROI 191,68%, cobertura 22,02% | Denominadores y fórmulas explícitos |
+| IE22, organización | README, carpetas numeradas y GitHub Flow | Datos, código, PBIX, informe, presentación y evidencia |
+| Preguntas de negocio | docs/RESPUESTAS_NEGOCIO.md y src/respuestas_negocio.py | Géneros, países, bajo presupuesto y correlaciones |
+| Clasificación etaria | No disponible en los CSV | Limitación pendiente de aceptación docente |
+| Librerías Python | Streamlit, Plotly, Matplotlib y Seaborn | Dash no implementado. Se explica la elección de Streamlit |
+| EP3 y EP4 | Encargo y defensa individual de Vicente | Sin afirmar una excepción de modalidad grupal |
 
-No se afirma que los commits actuales acrediten avances históricos. No se afirma una integración de clics entre Python y Power BI. Son dos productos que comparten catálogo y definiciones.
+El cumplimiento documental no garantiza una calificación. No se inventan datos ausentes ni evidencia histórica de avances del semestre.

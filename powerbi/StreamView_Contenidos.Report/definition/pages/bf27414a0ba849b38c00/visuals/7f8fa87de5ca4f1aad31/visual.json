@@ -25,7 +25,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Calificación promedio por país'"
+                  "Value": "'Calificación con votos por país'"
                 }
               }
             },

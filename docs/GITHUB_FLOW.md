@@ -1,29 +1,17 @@
-# Gestión con GitHub Flow
+# Gestión del repositorio con GitHub Flow
 
-## Historial y primera corrección
+Repositorio: https://github.com/vicezepeda/STREAMVIEW-ANALYTICS
 
-La revisión original partió de b889ae3. Sus 38 commits alcanzables desde main no permitían acreditar por sí solos el trabajo continuo en ramas. No se afirma que nunca existieran otras ramas ni se reconstruye un historial anterior.
+Se trabaja en una rama, se realizan commits de cambios concretos y se abre una pull request hacia main. La integración se mantiene como una decisión del propietario después de revisar el cambio.
 
-La corrección se desarrolló en correccion/audiencias-semana9 con cuatro commits reales: datos y KPIs, Python y D3, Power BI y documentación. Se publicó la rama y se abrió la pull request #1. GitHub confirma su integración en main mediante 5596b6d:
+| Corrección | Rama | Pull request | Estado verificado |
+|---|---|---|---|
+| Dos audiencias y herramientas | correccion/audiencias-semana9 | https://github.com/vicezepeda/STREAMVIEW-ANALYTICS/pull/1 | Integrada, 5596b6d |
+| Ejecución reproducible y revisión anterior | correccion/revision-final-entrega | https://github.com/vicezepeda/STREAMVIEW-ANALYTICS/pull/2 | Integrada, 75d259a |
+| KPIs, capturas reales y defensa | correccion/kpis-evidencias-defensa | https://github.com/vicezepeda/STREAMVIEW-ANALYTICS/pull/3 | Abierta al preparar esta entrega |
 
-https://github.com/vicezepeda/STREAMVIEW-ANALYTICS/pull/1
+La tercera corrección parte de origin/main después de la integración de la PR #2. Se separan los commits de métricas y análisis, ajustes de legibilidad de Power BI, evidencias y documentos finales. Las fechas son reales y no se reconstruye un supuesto historial del semestre.
 
-## Revisión final de la entrega
+Las credenciales de GitHub no se incluyen en el proyecto. El bundle del paquete conserva el historial. Los archivos github_estado.json y github_pr_actual.json registran respuestas resumidas de la API. La captura github_pr3.png muestra la PR en el navegador.
 
-La rama correccion/revision-final-entrega parte del main integrado. Corrige el cuaderno, los accesos Python y la documentación, actualiza las dependencias comprobadas y conserva evidencias de las pruebas. La publicación y revisión de esta rama se realizan sin forzar push ni reescribir commits anteriores.
-
-Flujo utilizado: crear rama desde main, realizar cambios reales, probar, registrar commits, publicar, abrir una pull request, revisar e integrar. Cada commit conserva su fecha real. Los commits actuales no sustituyen avances que debieron registrarse durante el semestre.
-
-## Recuperar el historial incluido
-
-El ZIP de entrega conserva los archivos y StreamView_Historial.bundle conserva commits y ramas. Desde una terminal situada junto al bundle:
-
-```bash
-git clone StreamView_Historial.bundle STREAMVIEW-ANALYTICS
-cd STREAMVIEW-ANALYTICS
-git remote set-url origin https://github.com/vicezepeda/STREAMVIEW-ANALYTICS.git
-git switch correccion/revision-final-entrega
-git log --oneline --decorate -8
-```
-
-El bundle no incluye credenciales ni publica automáticamente. Antes de integrar, revisar los cambios y las observaciones de Power BI indicadas en VALIDACION.md.
+La versión de la entrega está en la rama de la PR #3. Si la PR sigue abierta, entregar solo la URL de main omite esta corrección. Usar el enlace de la rama y de la PR o revisar e integrar la PR antes de compartir main.

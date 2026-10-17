@@ -25,7 +25,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Calificación promedio'"
+                  "Value": "'Calificación con votos'"
                 }
               }
             },
