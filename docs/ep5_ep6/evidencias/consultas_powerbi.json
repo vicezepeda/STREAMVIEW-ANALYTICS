@@ -1,0 +1,278 @@
+﻿{
+    "queries":  [
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Paises\u0027[Pais]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Tipo]))",
+                        "status":  "OK",
+                        "rows":  2
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Paises representados]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Idioma], \"M0\", [Titulos]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Anio], \u0027Catalogo\u0027[Tipo], \"M0\", [Titulos]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Series]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Generos disponibles]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Anio]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Paises\u0027[Pais], \"M0\", [Top paises]))",
+                        "status":  "OK",
+                        "rows":  10
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Titulos]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Idiomas disponibles]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Tipo], \"M0\", [Titulos]))",
+                        "status":  "OK",
+                        "rows":  2
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Generos\u0027[Genero], \"M0\", [Top generos]))",
+                        "status":  "OK",
+                        "rows":  10
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Peliculas]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Calificacion]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Generos\u0027[Genero]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Idioma]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Generos\u0027[Genero], \"M0\", [Popularidad media]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Titulos ranking]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Generos\u0027[Genero], \"M0\", [Calificacion media]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Calificacion ponderada]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Popularidad mediana]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Votaciones promedio]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Clave], \u0027Catalogo\u0027[Titulo], \u0027Catalogo\u0027[Tipo], \"M0\", AVERAGE(\u0027Catalogo\u0027[Popularidad]), \"M1\", AVERAGE(\u0027Catalogo\u0027[Calificacion]), \"M2\", SUM(\u0027Catalogo\u0027[Votos])))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Titulo], \"M0\", [Top rating]))",
+                        "status":  "OK",
+                        "rows":  10
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Ingresos totales]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Titulo], \"M0\", [Top ingresos]))",
+                        "status":  "OK",
+                        "rows":  10
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Presupuesto promedio]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [ROI mediano]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Anio], \"M0\", [Presupuesto total], \"M1\", [Ingresos totales]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Ratio ingresos presupuesto]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Presupuesto total]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Muestra financiera]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Cobertura financiera]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Clave], \u0027Catalogo\u0027[Titulo], \"M0\", AVERAGE(\u0027Catalogo\u0027[Presupuesto]), \"M1\", AVERAGE(\u0027Catalogo\u0027[Ingresos]), \"M2\", SUM(\u0027Catalogo\u0027[Votos])))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [ROI agregado]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Generos\u0027[Genero], \"M0\", [Titulos]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Incorporacion], \u0027Catalogo\u0027[Tipo], \"M0\", [Titulos]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Calificacion media]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Popularidad media]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Titulo], \"M0\", [Top bajo presupuesto]))",
+                        "status":  "OK",
+                        "rows":  10
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [Peliculas bajo presupuesto]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\"M0\", [ROI bajo presupuesto]))",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Generos\u0027[Genero], \"M0\", [Muestra financiera]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Generos\u0027[Genero], \"M0\", [ROI agregado]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Catalogo\u0027[Idioma], \"M0\", [Cobertura financiera]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Directores\u0027[Director], \"M0\", [Top directores]))",
+                        "status":  "OK",
+                        "rows":  13
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Paises\u0027[Pais], \"M0\", [Titulos], \"M1\", [Calificacion mapa]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Actores\u0027[Actor], \"M0\", [Top actores]))",
+                        "status":  "OK",
+                        "rows":  11
+                    },
+                    {
+                        "query":  "EVALUATE TOPN(15, SUMMARIZECOLUMNS(\u0027Paises\u0027[Pais], \"M0\", [Calificacion mapa]))",
+                        "status":  "OK",
+                        "rows":  15
+                    },
+                    {
+                        "query":  "EVALUATE ROW(\"Titulos\", [Titulos], \"Peliculas\", [Peliculas], \"Series\", [Series], \"Muestra\", [Muestra financiera], \"ROI\", [ROI agregado])",
+                        "status":  "OK",
+                        "rows":  1
+                    },
+                    {
+                        "query":  "EVALUATE CALCULATETABLE(ROW(\"N\",[Titulos]),TREATAS({\"United States of America\"},Paises[Pais]))",
+                        "status":  "OK",
+                        "rows":  1
+                    }
+                ],
+    "kpis":  {
+                 "series":  15991,
+                 "popularidad_media":  42.625429245725364,
+                 "drama":  14769,
+                 "calificacion_n":  27414,
+                 "roi_pct":  191.68223401160409,
+                 "cobertura_pct":  22.01875,
+                 "popularidad_mediana":  22.071,
+                 "titulos":  31991,
+                 "peliculas":  16000,
+                 "calificacion_media":  6.6341870212300282,
+                 "muestra_financiera":  3523
+             },
+    "note":  "Consultas al modelo. No acreditan interacciones de la interfaz."
+}
