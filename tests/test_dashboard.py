@@ -16,8 +16,10 @@ class ExecutiveAppTests(unittest.TestCase):
     def test_filter_movies_and_reset(self):
         app=self.app();app.multiselect(key='tipos').set_value(['Película']).run()
         self.assertEqual(len(app.exception),0);self.assertEqual(app.metric[0].value,'16,000')
+        app.number_input(key='min_genero').set_value(2000).run()
         app.button(key='limpiar').click().run()
         self.assertEqual(app.metric[0].value,'31,991')
+        self.assertEqual(app.number_input(key='min_genero').value,100)
     def test_genre_filter_agrees_with_unique_pbix_count(self):
         app=self.app();app.multiselect(key='generos').set_value(['Drama']).run()
         self.assertEqual(len(app.exception),0);self.assertEqual(app.metric[0].value,'14,769')

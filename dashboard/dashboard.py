@@ -25,6 +25,7 @@ def reset_filters():
     st.session_state['tipos'] = ['Película', 'Serie']
     st.session_state['anios'] = (2010, 2025)
     st.session_state['generos'] = []
+    st.session_state['min_genero'] = 100
 
 ALIASES = {'United States of America':'USA','South Korea':'KOR','North Korea':'PRK','Russia':'RUS','Vietnam':'VNM','Czech Republic':'CZE','Kosovo':'XKX','Iran':'IRN','Syria':'SYR','Laos':'LAO','Bolivia':'BOL','Venezuela':'VEN','Taiwan':'TWN','Palestine':'PSE',"Cote D'Ivoire":'CIV','Faeroe Islands':'FRO','Guadaloupe':'GLP','Macedonia':'MKD','Netherlands Antilles':'ANT','Palestinian Territory':'PSE','St. Kitts and Nevis':'KNA','St. Lucia':'LCA','St. Pierre and Miquelon':'SPM','Turkey':'TUR','US Virgin Islands':'VIR'}
 def iso3(country):
@@ -37,7 +38,7 @@ st.title('StreamView Analytics')
 st.subheader('Dashboard ejecutivo en Python')
 st.caption('Audiencia: Directorio y Gerencia General. La audiencia de Contenidos y Adquisición se implementa en el PBIX de la carpeta powerbi/.')
 st.sidebar.header('Filtros ejecutivos')
-for key, initial in {'tipos': ['Película', 'Serie'], 'anios': (2010, 2025), 'generos': []}.items():
+for key, initial in {'tipos': ['Película', 'Serie'], 'anios': (2010, 2025), 'generos': [], 'min_genero':100}.items():
     if key not in st.session_state:
         st.session_state[key] = initial
 types = st.sidebar.multiselect('Tipo de contenido', ['Película','Serie'], key='tipos')
@@ -87,7 +88,10 @@ with view:
 with comparison:
     st.subheader('Comparar géneros dentro de cada tipo')
     st.write('Películas y series se evalúan por separado para orientar la revisión de contenidos y sus licencias.')
-    minimum=st.number_input('Mínimo de títulos por género',min_value=1,max_value=2000,value=100,step=25,key='min_genero')
+    minimum=st.number_input('Mínimo de títulos por género',min_value=1,max_value=2000,value=None,step=25,key='min_genero')
+    if minimum is None:
+        minimum=100
+        st.caption('Si el mínimo está vacío, se utiliza 100 títulos por género.')
     grouped=generos_por_tipo(df,min_titulos=minimum)
     st.caption('Nota > 0 y <= 10. Películas: mínimo 50 votos. Series: mínimo 30 votos. n cuenta títulos únicos dentro de cada género. Los filtros superiores también se aplican aquí.')
     if grouped.empty:
