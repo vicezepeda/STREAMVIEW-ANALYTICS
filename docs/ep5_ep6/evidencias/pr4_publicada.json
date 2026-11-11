@@ -1,0 +1,12 @@
+{
+  "url": "https://github.com/vicezepeda/STREAMVIEW-ANALYTICS/pull/4",
+  "number": 4,
+  "state": "open",
+  "merged": false,
+  "base": "main",
+  "head": "mejora/ep5-ep6",
+  "head_sha_al_crear": "bead0b61876fd7e1909e4360eabfd264b1ae951f",
+  "created_at": "2026-11-11T19:37:19Z",
+  "commits_al_crear": 4,
+  "nota": "Estado verificado al crear la PR; el commit posterior registra el enlace y estas evidencias."
+}

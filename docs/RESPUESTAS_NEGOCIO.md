@@ -1,12 +1,11 @@
-# Respuestas de negocio
+# Decisiones editoriales por tipo
 
-Las conclusiones describen el catálogo entregado y orientan una lista de candidatos. No equivalen a una autorización de compra.
+Películas: evaluar Documentary, nota 7,20 (542), y Animation, 7,00 (1.226). Series: evaluar Animation, 7,65 (1.022), Action & Adventure, 7,54 (940), y Sci-Fi & Fantasy, 7,54 (1.044). Documentary en series tiene 7,50 (129) y una muestra menor. No se usa la nota combinada 7,29 de Animation para recomendar películas.
 
-1. **¿Qué géneros priorizar?** Evaluar Animation (7,29; 2.248 títulos con votos suficientes) y Documentary (7,26; 671) por la combinación de valoración y muestra. Action & Adventure (7,54; 940) y Sci-Fi & Fantasy (7,54; 1.044) también son candidatos. Drama concentra 14.769 títulos únicos, pero su volumen no demuestra demanda. Los nombres de categorías proceden de dos fuentes y pueden corresponder a taxonomías diferentes según el tipo. No se suman para estimar cuota exclusiva.
-2. **¿Qué países son oportunidad?** Explorar Corea del Sur (7,42; 731) y Japón (7,37; 1.370). Probar candidatos de Colombia (7,31; 81) y México (7,14; 373), con cautela por el tamaño de muestra de Colombia. Son oportunidades de exploración editorial, no demanda demostrada. Se exige un mínimo de 30 títulos con votos suficientes por país.
-3. **¿Qué películas fueron exitosas con presupuesto reducido?** Con presupuesto de hasta USD 10 millones y ambos datos financieros válidos: Insidious, USD 1,50 M de presupuesto y 100,11 M de ingresos, ROI aproximado 6.573,76%; Get Out, 4,50 M y 255,41 M, ROI 5.575,73%; Whiplash, 3,30 M y 50,31 M, ROI 1.424,47%. Estos ejemplos recuperan ampliamente el presupuesto según la fuente. No incluyen todos los gastos. Verificar cifras y derechos antes de invertir. Los ROI extremos del ranking, como One Cut of the Dead, requieren validación adicional.
-4. **¿Existe relación entre popularidad y calificación?** En películas con al menos 50 votos (n=12.185), Pearson r=0,092 y Spearman rho=0,242. En series con al menos 30 votos (n=4.005), r=0,010 y rho=0,235. La relación lineal es muy débil y la relación por rangos es positiva pero débil. Popularidad alta no basta para predecir una nota alta. Se separan tipos y el logaritmo del eje x solo facilita la lectura de la figura. Los coeficientes se calculan sobre valores originales, sin logaritmo. No hay causalidad demostrada.
+Territorios: como exploración separada, en películas Corea del Sur tiene 7,02 (364) y Japón 6,99 (607). En series, Corea del Sur tiene 7,81 (367), Japón 7,68 (763) y China 7,96 (74), con mayor cautela para esta última muestra. Se exige al menos 30 títulos con votos suficientes por país. No representan demanda en el territorio.
 
-Predominan Drama y Comedy, Estados Unidos e inglés. Los años de estreno muestran una distribución casi uniforme, por lo que no se atribuye crecimiento real a esa figura. Año de incorporación y año de estreno son variables distintas.
+Bajo presupuesto: Insidious (1,50 MUSD y 100,11 MUSD), Get Out (4,50 y 255,41) y Whiplash (3,30 y 50,31) son ejemplos con ingresos superiores al presupuesto y presupuesto <= 10 MUSD. El ROI parcial no incluye todos los costos. El catálogo completo permite explorar casos que no recuperan presupuesto y no solo estos ejemplos exitosos.
 
-Los cálculos reproducibles están en src/respuestas_negocio.py y data/processed/respuestas_negocio.json. Las comparaciones de valoración usan nota válida y los umbrales 50/30. El KPI general 6,63 usa todos los títulos con valoración válida y tiene otro denominador (27.414).
+Popularidad y nota: Pearson películas 0,092 (12.185) y series 0,010 (4.005). Spearman 0,242 y 0,235. Asociación lineal muy débil y por rangos positiva débil. No hay evidencia causal.
+
+Antes de adquirir: validar datos, consumo, derechos por territorio y costo de licencia. Los umbrales de votos reducen ruido, pero favorecen títulos con más exposición y no eliminan todos los sesgos.

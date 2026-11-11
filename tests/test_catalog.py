@@ -44,5 +44,15 @@ class CatalogTests(unittest.TestCase):
     def test_unrated_subset_does_not_produce_a_false_zero_rating(self):
         missing=self.df[self.df.votos.eq(0)]
         self.assertTrue(rated_catalog(missing).empty)
+    def test_genre_acquisition_comparison_keeps_movies_and_series_separate(self):
+        from src.respuestas_negocio import generos_por_tipo
+        g=generos_por_tipo(self.df).set_index(['tipo','genero'])
+        expected={('Película','Animation'):(1226,6.998936378466558),
+                  ('Película','Documentary'):(542,7.200252767527676),
+                  ('Serie','Animation'):(1022,7.646942270058708),
+                  ('Serie','Documentary'):(129,7.495627906976744)}
+        for key,(n,mean) in expected.items():
+            self.assertEqual(g.loc[key,'titulos'],n)
+            self.assertAlmostEqual(g.loc[key,'calificacion'],mean,places=5)
 
 if __name__=='__main__': unittest.main()

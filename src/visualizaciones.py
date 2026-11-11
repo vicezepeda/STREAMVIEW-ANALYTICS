@@ -1,4 +1,4 @@
-"""Genera siete figuras estáticas del catálogo común en visualizaciones/."""
+"""Genera figuras estáticas del catálogo común en visualizaciones/."""
 from pathlib import Path
 
 import matplotlib
@@ -12,8 +12,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src import metrics as M
 from src.prep import explode, load_clean
 
-OUT = Path(__file__).resolve().parents[1] / "visualizaciones"
-C_PEL, C_SER, GRIS = "#1f4e79", "#f28e2b", "#8c8c8c"
+OUT = Path(__file__).resolve().parents[1] / "images"
+C_PEL, C_SER, GRIS = "#1f4e79", "#A34B00", "#8c8c8c"
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10,
                      "axes.spines.top": False, "axes.spines.right": False})
 
@@ -29,7 +29,7 @@ def f1_evolucion(df):
     a = M.por_anio(df)
     fig, ax = plt.subplots(figsize=(8, 3.8))
     ax.plot(a.anio, a["Película"], marker="o", color=C_PEL, label="Películas")
-    ax.plot(a.anio, a["Serie"], marker="o", color=C_SER, label="Series")
+    ax.plot(a.anio, a["Serie"], marker="s", linestyle="--", color=C_SER, label="Series")
     ax.set_ylim(0, a[["Película", "Serie"]].max().max() * 1.3)
     ax.set_title("Títulos por año de estreno y tipo (2010–2025)", loc="left", weight="bold")
     ax.set_xlabel("Año de estreno")

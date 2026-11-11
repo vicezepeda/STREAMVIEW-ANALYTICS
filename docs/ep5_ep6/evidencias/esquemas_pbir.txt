@@ -1,0 +1,1 @@
+Todos los documentos PBIR cumplen sus esquemas JSON.

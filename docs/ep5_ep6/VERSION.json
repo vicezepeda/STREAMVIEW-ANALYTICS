@@ -1,0 +1,14 @@
+{
+  "entrega": "EP5_EP6",
+  "revision_contenido": "2026-11-09",
+  "empaquetado": "2026-11-11",
+  "presenta": "Vicente Zepeda Rojas",
+  "diapositivas": 12,
+  "guion_segundos": 600,
+  "pdf_informe_paginas": 12,
+  "pdf_resumen_paginas": 2,
+  "presentacion_sha256": "a6ac59aa6481aa3f496307972f78d24c5389be0256fec16f44eed9b0648d7395",
+  "presentacion_anterior_sha256": "1faa8eef0c6d439365553a8c1c4ae321c652535e3ef973fe710ea077712919a9",
+  "mismo_archivo_que_entrega_anterior": false,
+  "alcance": "Contenido revisado con documento 3.3.1. Evidencias de Power BI fechadas en octubre y de Python en noviembre."
+}

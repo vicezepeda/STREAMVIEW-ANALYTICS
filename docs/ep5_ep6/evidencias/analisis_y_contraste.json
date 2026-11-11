@@ -1,0 +1,984 @@
+{
+  "fecha_revision": "2026-11-09",
+  "catalogo": {
+    "total": 31991,
+    "peliculas": 16000,
+    "series": 15991,
+    "paises": 147,
+    "idiomas": 83,
+    "generos": 28,
+    "calificacion_media": 6.634187021230028,
+    "calificacion_con_votos_suficientes": 6.651343051266214,
+    "calificacion_n": 27414,
+    "calificacion_excluidos": 4577,
+    "calificacion_cero": 4564,
+    "sin_votos": 4560,
+    "popularidad_media": 42.62542924572536,
+    "popularidad_mediana": 22.071,
+    "popularidad_mediana_peliculas": 10.913499999999999,
+    "popularidad_mediana_series": 36.2,
+    "calificacion_prom_ponderada": 6.9749129728593,
+    "pct_en": 43.665405895408085,
+    "pct_asia": 24.563158388296706
+  },
+  "finanzas": {
+    "n": 3523,
+    "cobertura_pct": 22.01875,
+    "presupuesto_prom": 35749091.941527106,
+    "ingresos_prom": 104273750.0139086,
+    "presupuesto_total": 125944050910.0,
+    "ingresos_total": 367356421299.0,
+    "ratio_ingresos_presupuesto": 2.916822340116041,
+    "roi_agregado_pct": 191.6822340116041,
+    "roi_mediano_pct": 70.432927,
+    "pct_recuperan_presupuesto": 63.298325290945215
+  },
+  "negocio": {
+    "generos_por_tipo_con_evidencia": [
+      {
+        "tipo": "Película",
+        "genero": "Documentary",
+        "titulos": 542,
+        "calificacion": 7.200252767527675,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Music",
+        "titulos": 380,
+        "calificacion": 7.003368421052632,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Animation",
+        "titulos": 1226,
+        "calificacion": 6.998937194127243,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "History",
+        "titulos": 619,
+        "calificacion": 6.817252019386107,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "War",
+        "titulos": 341,
+        "calificacion": 6.716442815249266,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Family",
+        "titulos": 1206,
+        "calificacion": 6.713243781094527,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Fantasy",
+        "titulos": 1172,
+        "calificacion": 6.578709044368601,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Drama",
+        "titulos": 5311,
+        "calificacion": 6.577351534550932,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Adventure",
+        "titulos": 1484,
+        "calificacion": 6.533403638814016,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Romance",
+        "titulos": 1745,
+        "calificacion": 6.52144240687679,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Crime",
+        "titulos": 1491,
+        "calificacion": 6.389756539235413,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "TV Movie",
+        "titulos": 472,
+        "calificacion": 6.335966101694916,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Comedy",
+        "titulos": 3790,
+        "calificacion": 6.327070976253298,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Western",
+        "titulos": 108,
+        "calificacion": 6.301583333333333,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Action",
+        "titulos": 2667,
+        "calificacion": 6.296835770528684,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Mystery",
+        "titulos": 1024,
+        "calificacion": 6.2731591796875,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Science Fiction",
+        "titulos": 1204,
+        "calificacion": 6.180359634551495,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Thriller",
+        "titulos": 3131,
+        "calificacion": 6.105330884701374,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Película",
+        "genero": "Horror",
+        "titulos": 1928,
+        "calificacion": 5.7914279045643156,
+        "umbral_votos": 50
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Animation",
+        "titulos": 1022,
+        "calificacion": 7.646942270058709,
+        "umbral_votos": 30
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Action & Adventure",
+        "titulos": 940,
+        "calificacion": 7.537309574468085,
+        "umbral_votos": 30
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Sci-Fi & Fantasy",
+        "titulos": 1044,
+        "calificacion": 7.536737547892721,
+        "umbral_votos": 30
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Kids",
+        "titulos": 152,
+        "calificacion": 7.511644736842105,
+        "umbral_votos": 30
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Family",
+        "titulos": 274,
+        "calificacion": 7.507401459854014,
+        "umbral_votos": 30
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Documentary",
+        "titulos": 129,
+        "calificacion": 7.495627906976744,
+        "umbral_votos": 30
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Drama",
+        "titulos": 2431,
+        "calificacion": 7.482362813656931,
+        "umbral_votos": 30
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Comedy",
+        "titulos": 1479,
+        "calificacion": 7.457521298174443,
+        "umbral_votos": 30
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Soap",
+        "titulos": 129,
+        "calificacion": 7.449410852713179,
+        "umbral_votos": 30
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Mystery",
+        "titulos": 590,
+        "calificacion": 7.433422033898305,
+        "umbral_votos": 30
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Crime",
+        "titulos": 677,
+        "calificacion": 7.4024903988183155,
+        "umbral_votos": 30
+      },
+      {
+        "tipo": "Serie",
+        "genero": "Reality",
+        "titulos": 135,
+        "calificacion": 6.944244444444444,
+        "umbral_votos": 30
+      }
+    ],
+    "paises_con_evidencia": [
+      {
+        "country": "South Korea",
+        "titulos": 731,
+        "calificacion_prom": 7.416726402188783,
+        "popularidad_mediana": 25.938
+      },
+      {
+        "country": "Japan",
+        "titulos": 1370,
+        "calificacion_prom": 7.374401459854015,
+        "popularidad_mediana": 26.200000000000003
+      },
+      {
+        "country": "Colombia",
+        "titulos": 81,
+        "calificacion_prom": 7.305580246913579,
+        "popularidad_mediana": 40.828
+      },
+      {
+        "country": "Mexico",
+        "titulos": 373,
+        "calificacion_prom": 7.141865951742628,
+        "popularidad_mediana": 20.682
+      },
+      {
+        "country": "Turkey",
+        "titulos": 135,
+        "calificacion_prom": 7.1075333333333335,
+        "popularidad_mediana": 22.215
+      },
+      {
+        "country": "Taiwan",
+        "titulos": 55,
+        "calificacion_prom": 7.0100181818181815,
+        "popularidad_mediana": 16.68
+      },
+      {
+        "country": "Brazil",
+        "titulos": 180,
+        "calificacion_prom": 6.920644444444444,
+        "popularidad_mediana": 11.0055
+      },
+      {
+        "country": "Argentina",
+        "titulos": 112,
+        "calificacion_prom": 6.8897232142857145,
+        "popularidad_mediana": 10.8475
+      },
+      {
+        "country": "China",
+        "titulos": 449,
+        "calificacion_prom": 6.812118040089087,
+        "popularidad_mediana": 15.97
+      },
+      {
+        "country": "Denmark",
+        "titulos": 175,
+        "calificacion_prom": 6.757874285714285,
+        "popularidad_mediana": 11.555
+      },
+      {
+        "country": "Czech Republic",
+        "titulos": 45,
+        "calificacion_prom": 6.728222222222222,
+        "popularidad_mediana": 13.392
+      },
+      {
+        "country": "Israel",
+        "titulos": 35,
+        "calificacion_prom": 6.6891428571428575,
+        "popularidad_mediana": 10.292
+      },
+      {
+        "country": "India",
+        "titulos": 401,
+        "calificacion_prom": 6.677745635910224,
+        "popularidad_mediana": 9.682
+      },
+      {
+        "country": "Chile",
+        "titulos": 54,
+        "calificacion_prom": 6.666296296296297,
+        "popularidad_mediana": 10.8665
+      },
+      {
+        "country": "Thailand",
+        "titulos": 74,
+        "calificacion_prom": 6.664932432432432,
+        "popularidad_mediana": 15.682500000000001
+      },
+      {
+        "country": "Russia",
+        "titulos": 181,
+        "calificacion_prom": 6.66160773480663,
+        "popularidad_mediana": 12.855
+      },
+      {
+        "country": "Sweden",
+        "titulos": 203,
+        "calificacion_prom": 6.660650246305419,
+        "popularidad_mediana": 11.938
+      },
+      {
+        "country": "Norway",
+        "titulos": 126,
+        "calificacion_prom": 6.626984126984127,
+        "popularidad_mediana": 12.9245
+      },
+      {
+        "country": "Luxembourg",
+        "titulos": 62,
+        "calificacion_prom": 6.607322580645161,
+        "popularidad_mediana": 11.6065
+      },
+      {
+        "country": "United Kingdom",
+        "titulos": 1928,
+        "calificacion_prom": 6.595148858921162,
+        "popularidad_mediana": 14.788
+      },
+      {
+        "country": "Greece",
+        "titulos": 34,
+        "calificacion_prom": 6.590058823529412,
+        "popularidad_mediana": 14.254
+      },
+      {
+        "country": "Spain",
+        "titulos": 560,
+        "calificacion_prom": 6.564357142857143,
+        "popularidad_mediana": 11.866
+      },
+      {
+        "country": "Germany",
+        "titulos": 675,
+        "calificacion_prom": 6.562410370370371,
+        "popularidad_mediana": 11.332
+      },
+      {
+        "country": "Hong Kong",
+        "titulos": 207,
+        "calificacion_prom": 6.558758454106281,
+        "popularidad_mediana": 12.582
+      },
+      {
+        "country": "Ireland",
+        "titulos": 179,
+        "calificacion_prom": 6.538698324022346,
+        "popularidad_mediana": 12.438
+      },
+      {
+        "country": "Austria",
+        "titulos": 65,
+        "calificacion_prom": 6.538215384615384,
+        "popularidad_mediana": 9.834
+      },
+      {
+        "country": "New Zealand",
+        "titulos": 61,
+        "calificacion_prom": 6.526065573770492,
+        "popularidad_mediana": 15.714
+      },
+      {
+        "country": "United States of America",
+        "titulos": 8600,
+        "calificacion_prom": 6.523078488372093,
+        "popularidad_mediana": 16.914
+      },
+      {
+        "country": "Iceland",
+        "titulos": 44,
+        "calificacion_prom": 6.520909090909091,
+        "popularidad_mediana": 11.481
+      },
+      {
+        "country": "United Arab Emirates",
+        "titulos": 32,
+        "calificacion_prom": 6.50584375,
+        "popularidad_mediana": 18.756
+      },
+      {
+        "country": "Indonesia",
+        "titulos": 35,
+        "calificacion_prom": 6.502085714285714,
+        "popularidad_mediana": 12.119
+      },
+      {
+        "country": "Switzerland",
+        "titulos": 97,
+        "calificacion_prom": 6.496628865979382,
+        "popularidad_mediana": 11.622
+      },
+      {
+        "country": "Poland",
+        "titulos": 130,
+        "calificacion_prom": 6.496076923076923,
+        "popularidad_mediana": 11.0595
+      },
+      {
+        "country": "Netherlands",
+        "titulos": 120,
+        "calificacion_prom": 6.490525000000001,
+        "popularidad_mediana": 10.239999999999998
+      },
+      {
+        "country": "Finland",
+        "titulos": 62,
+        "calificacion_prom": 6.481580645161291,
+        "popularidad_mediana": 11.3985
+      },
+      {
+        "country": "Australia",
+        "titulos": 309,
+        "calificacion_prom": 6.475880258899677,
+        "popularidad_mediana": 15.07
+      },
+      {
+        "country": "Romania",
+        "titulos": 37,
+        "calificacion_prom": 6.475027027027027,
+        "popularidad_mediana": 11.088
+      },
+      {
+        "country": "Hungary",
+        "titulos": 49,
+        "calificacion_prom": 6.469061224489796,
+        "popularidad_mediana": 13.627
+      },
+      {
+        "country": "Belgium",
+        "titulos": 489,
+        "calificacion_prom": 6.46016564417178,
+        "popularidad_mediana": 10.784
+      },
+      {
+        "country": "France",
+        "titulos": 1661,
+        "calificacion_prom": 6.44858880192655,
+        "popularidad_mediana": 10.38
+      },
+      {
+        "country": "Italy",
+        "titulos": 465,
+        "calificacion_prom": 6.378309677419355,
+        "popularidad_mediana": 9.24
+      },
+      {
+        "country": "Canada",
+        "titulos": 1093,
+        "calificacion_prom": 6.363762122598353,
+        "popularidad_mediana": 13.221
+      },
+      {
+        "country": "South Africa",
+        "titulos": 73,
+        "calificacion_prom": 6.271547945205479,
+        "popularidad_mediana": 13.706
+      },
+      {
+        "country": "Bulgaria",
+        "titulos": 52,
+        "calificacion_prom": 6.009057692307692,
+        "popularidad_mediana": 17.073
+      }
+    ],
+    "paises_por_tipo_con_evidencia": [
+      {
+        "tipo": "Película",
+        "country": "South Korea",
+        "titulos": 364,
+        "calificacion_prom": 7.020824175824176,
+        "popularidad_mediana": 13.346
+      },
+      {
+        "tipo": "Película",
+        "country": "Japan",
+        "titulos": 607,
+        "calificacion_prom": 6.988769357495881,
+        "popularidad_mediana": 14.23
+      },
+      {
+        "tipo": "Película",
+        "country": "Mexico",
+        "titulos": 206,
+        "calificacion_prom": 6.801485436893204,
+        "popularidad_mediana": 10.243
+      },
+      {
+        "tipo": "Película",
+        "country": "Brazil",
+        "titulos": 135,
+        "calificacion_prom": 6.787525925925926,
+        "popularidad_mediana": 8.861
+      },
+      {
+        "tipo": "Película",
+        "country": "Taiwan",
+        "titulos": 41,
+        "calificacion_prom": 6.762073170731707,
+        "popularidad_mediana": 12.295
+      },
+      {
+        "tipo": "Película",
+        "country": "Denmark",
+        "titulos": 151,
+        "calificacion_prom": 6.709298013245033,
+        "popularidad_mediana": 10.53
+      },
+      {
+        "tipo": "Película",
+        "country": "Czech Republic",
+        "titulos": 41,
+        "calificacion_prom": 6.68219512195122,
+        "popularidad_mediana": 12.077
+      },
+      {
+        "tipo": "Película",
+        "country": "Argentina",
+        "titulos": 91,
+        "calificacion_prom": 6.669263736263736,
+        "popularidad_mediana": 9.587
+      },
+      {
+        "tipo": "Película",
+        "country": "India",
+        "titulos": 369,
+        "calificacion_prom": 6.620319783197832,
+        "popularidad_mediana": 9.371
+      },
+      {
+        "tipo": "Película",
+        "country": "Turkey",
+        "titulos": 71,
+        "calificacion_prom": 6.613549295774648,
+        "popularidad_mediana": 9.771
+      },
+      {
+        "tipo": "Película",
+        "country": "Luxembourg",
+        "titulos": 60,
+        "calificacion_prom": 6.592566666666667,
+        "popularidad_mediana": 11.1625
+      },
+      {
+        "tipo": "Película",
+        "country": "China",
+        "titulos": 375,
+        "calificacion_prom": 6.585917333333334,
+        "popularidad_mediana": 14.024
+      },
+      {
+        "tipo": "Película",
+        "country": "Sweden",
+        "titulos": 179,
+        "calificacion_prom": 6.577776536312849,
+        "popularidad_mediana": 10.956
+      },
+      {
+        "tipo": "Película",
+        "country": "Hong Kong",
+        "titulos": 200,
+        "calificacion_prom": 6.52823,
+        "popularidad_mediana": 12.346
+      },
+      {
+        "tipo": "Película",
+        "country": "Chile",
+        "titulos": 46,
+        "calificacion_prom": 6.524130434782609,
+        "popularidad_mediana": 9.523
+      },
+      {
+        "tipo": "Película",
+        "country": "Greece",
+        "titulos": 31,
+        "calificacion_prom": 6.508193548387096,
+        "popularidad_mediana": 12.7
+      },
+      {
+        "tipo": "Película",
+        "country": "United Arab Emirates",
+        "titulos": 32,
+        "calificacion_prom": 6.50584375,
+        "popularidad_mediana": 18.756
+      },
+      {
+        "tipo": "Película",
+        "country": "Norway",
+        "titulos": 108,
+        "calificacion_prom": 6.503203703703703,
+        "popularidad_mediana": 11.393
+      },
+      {
+        "tipo": "Película",
+        "country": "Austria",
+        "titulos": 57,
+        "calificacion_prom": 6.4858596491228075,
+        "popularidad_mediana": 9.219
+      },
+      {
+        "tipo": "Película",
+        "country": "Indonesia",
+        "titulos": 33,
+        "calificacion_prom": 6.477848484848485,
+        "popularidad_mediana": 11.899
+      },
+      {
+        "tipo": "Película",
+        "country": "Switzerland",
+        "titulos": 91,
+        "calificacion_prom": 6.468868131868132,
+        "popularidad_mediana": 10.979
+      },
+      {
+        "tipo": "Película",
+        "country": "Germany",
+        "titulos": 597,
+        "calificacion_prom": 6.468636515912897,
+        "popularidad_mediana": 10.453
+      },
+      {
+        "tipo": "Película",
+        "country": "Netherlands",
+        "titulos": 112,
+        "calificacion_prom": 6.462169642857143,
+        "popularidad_mediana": 9.702
+      },
+      {
+        "tipo": "Película",
+        "country": "Russia",
+        "titulos": 157,
+        "calificacion_prom": 6.453923566878981,
+        "popularidad_mediana": 10.999
+      },
+      {
+        "tipo": "Película",
+        "country": "Poland",
+        "titulos": 117,
+        "calificacion_prom": 6.430059829059829,
+        "popularidad_mediana": 10.38
+      },
+      {
+        "tipo": "Película",
+        "country": "Iceland",
+        "titulos": 39,
+        "calificacion_prom": 6.428717948717948,
+        "popularidad_mediana": 10.696
+      },
+      {
+        "tipo": "Película",
+        "country": "Romania",
+        "titulos": 36,
+        "calificacion_prom": 6.421555555555555,
+        "popularidad_mediana": 11.077
+      },
+      {
+        "tipo": "Película",
+        "country": "Finland",
+        "titulos": 56,
+        "calificacion_prom": 6.421321428571429,
+        "popularidad_mediana": 10.978000000000002
+      },
+      {
+        "tipo": "Película",
+        "country": "Belgium",
+        "titulos": 457,
+        "calificacion_prom": 6.420063457330416,
+        "popularidad_mediana": 10.429
+      },
+      {
+        "tipo": "Película",
+        "country": "Hungary",
+        "titulos": 46,
+        "calificacion_prom": 6.403391304347826,
+        "popularidad_mediana": 13.571
+      },
+      {
+        "tipo": "Película",
+        "country": "United Kingdom",
+        "titulos": 1513,
+        "calificacion_prom": 6.4018301387970915,
+        "popularidad_mediana": 12.321
+      },
+      {
+        "tipo": "Película",
+        "country": "Spain",
+        "titulos": 468,
+        "calificacion_prom": 6.399527777777777,
+        "popularidad_mediana": 10.688
+      },
+      {
+        "tipo": "Película",
+        "country": "Ireland",
+        "titulos": 151,
+        "calificacion_prom": 6.396880794701986,
+        "popularidad_mediana": 11.141
+      },
+      {
+        "tipo": "Película",
+        "country": "New Zealand",
+        "titulos": 51,
+        "calificacion_prom": 6.396411764705882,
+        "popularidad_mediana": 11.622
+      },
+      {
+        "tipo": "Película",
+        "country": "France",
+        "titulos": 1542,
+        "calificacion_prom": 6.384153696498054,
+        "popularidad_mediana": 9.982
+      },
+      {
+        "tipo": "Película",
+        "country": "Australia",
+        "titulos": 256,
+        "calificacion_prom": 6.3221953125,
+        "popularidad_mediana": 12.682500000000001
+      },
+      {
+        "tipo": "Película",
+        "country": "United States of America",
+        "titulos": 6713,
+        "calificacion_prom": 6.302892000595858,
+        "popularidad_mediana": 13.153
+      },
+      {
+        "tipo": "Película",
+        "country": "Thailand",
+        "titulos": 59,
+        "calificacion_prom": 6.297661016949153,
+        "popularidad_mediana": 12.22
+      },
+      {
+        "tipo": "Película",
+        "country": "Italy",
+        "titulos": 416,
+        "calificacion_prom": 6.258127403846154,
+        "popularidad_mediana": 8.477
+      },
+      {
+        "tipo": "Película",
+        "country": "Canada",
+        "titulos": 913,
+        "calificacion_prom": 6.187499452354874,
+        "popularidad_mediana": 11.406
+      },
+      {
+        "tipo": "Película",
+        "country": "South Africa",
+        "titulos": 62,
+        "calificacion_prom": 6.084241935483871,
+        "popularidad_mediana": 11.778500000000001
+      },
+      {
+        "tipo": "Película",
+        "country": "Bulgaria",
+        "titulos": 49,
+        "calificacion_prom": 5.958591836734694,
+        "popularidad_mediana": 16.802
+      },
+      {
+        "tipo": "Serie",
+        "country": "China",
+        "titulos": 74,
+        "calificacion_prom": 7.958405405405406,
+        "popularidad_mediana": 49.535
+      },
+      {
+        "tipo": "Serie",
+        "country": "South Korea",
+        "titulos": 367,
+        "calificacion_prom": 7.8093923705722075,
+        "popularidad_mediana": 38.655
+      },
+      {
+        "tipo": "Serie",
+        "country": "Japan",
+        "titulos": 763,
+        "calificacion_prom": 7.681188728702491,
+        "popularidad_mediana": 37.095
+      },
+      {
+        "tipo": "Serie",
+        "country": "Colombia",
+        "titulos": 52,
+        "calificacion_prom": 7.661096153846154,
+        "popularidad_mediana": 71.7695
+      },
+      {
+        "tipo": "Serie",
+        "country": "Turkey",
+        "titulos": 64,
+        "calificacion_prom": 7.655546875,
+        "popularidad_mediana": 55.8885
+      },
+      {
+        "tipo": "Serie",
+        "country": "Mexico",
+        "titulos": 167,
+        "calificacion_prom": 7.561736526946108,
+        "popularidad_mediana": 69.109
+      },
+      {
+        "tipo": "Serie",
+        "country": "Spain",
+        "titulos": 92,
+        "calificacion_prom": 7.40283695652174,
+        "popularidad_mediana": 36.74550000000001
+      },
+      {
+        "tipo": "Serie",
+        "country": "Italy",
+        "titulos": 49,
+        "calificacion_prom": 7.398632653061225,
+        "popularidad_mediana": 39.598
+      },
+      {
+        "tipo": "Serie",
+        "country": "India",
+        "titulos": 32,
+        "calificacion_prom": 7.3399375000000004,
+        "popularidad_mediana": 57.2675
+      },
+      {
+        "tipo": "Serie",
+        "country": "Brazil",
+        "titulos": 45,
+        "calificacion_prom": 7.319999999999999,
+        "popularidad_mediana": 68.714
+      },
+      {
+        "tipo": "Serie",
+        "country": "United States of America",
+        "titulos": 1887,
+        "calificacion_prom": 7.306391626921038,
+        "popularidad_mediana": 51.333
+      },
+      {
+        "tipo": "Serie",
+        "country": "United Kingdom",
+        "titulos": 415,
+        "calificacion_prom": 7.299946987951808,
+        "popularidad_mediana": 37.541
+      },
+      {
+        "tipo": "Serie",
+        "country": "France",
+        "titulos": 119,
+        "calificacion_prom": 7.28353781512605,
+        "popularidad_mediana": 43.388
+      },
+      {
+        "tipo": "Serie",
+        "country": "Germany",
+        "titulos": 78,
+        "calificacion_prom": 7.280141025641026,
+        "popularidad_mediana": 41.3205
+      },
+      {
+        "tipo": "Serie",
+        "country": "Canada",
+        "titulos": 180,
+        "calificacion_prom": 7.257805555555556,
+        "popularidad_mediana": 53.272
+      },
+      {
+        "tipo": "Serie",
+        "country": "Australia",
+        "titulos": 53,
+        "calificacion_prom": 7.218207547169811,
+        "popularidad_mediana": 35.373
+      },
+      {
+        "tipo": "Serie",
+        "country": "Belgium",
+        "titulos": 32,
+        "calificacion_prom": 7.032875,
+        "popularidad_mediana": 34.372
+      }
+    ],
+    "bajo_presupuesto_ejemplos": [
+      {
+        "titulo": "Insidious",
+        "presupuesto": 1500000.0,
+        "ingresos": 100106454.0,
+        "roi_pct": 6573.763599999999
+      },
+      {
+        "titulo": "Whiplash",
+        "presupuesto": 3300000.0,
+        "ingresos": 50307484.0,
+        "roi_pct": 1424.4692121212122
+      },
+      {
+        "titulo": "Moonlight",
+        "presupuesto": 4000000.0,
+        "ingresos": 65046687.0,
+        "roi_pct": 1526.167175
+      },
+      {
+        "titulo": "Get Out",
+        "presupuesto": 4500000.0,
+        "ingresos": 255407969.0,
+        "roi_pct": 5575.732644444444
+      }
+    ],
+    "correlacion_por_tipo": [
+      {
+        "tipo": "Película",
+        "n": 12185,
+        "pearson": 0.09217191098990042,
+        "spearman": 0.24220245103634855
+      },
+      {
+        "tipo": "Serie",
+        "n": 4005,
+        "pearson": 0.009827469158430788,
+        "spearman": 0.23536635864665487
+      }
+    ]
+  },
+  "contraste": {
+    "#F28E2B": 2.4194849776943075,
+    "#1F4E79": 8.662965411079913,
+    "#A34B00": 5.892690990221871,
+    "#26384A": 12.020843280576676
+  }
+}
